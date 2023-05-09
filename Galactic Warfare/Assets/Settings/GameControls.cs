@@ -28,15 +28,6 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
             ""id"": ""f93b005b-6b43-4c2d-b169-5a8b06876a2a"",
             ""actions"": [
                 {
-                    ""name"": ""Atirar"",
-                    ""type"": ""Button"",
-                    ""id"": ""ac41b564-a8bb-489f-b98c-1914466ddd79"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Movi"",
                     ""type"": ""Value"",
                     ""id"": ""25b790ba-b8cb-453d-86ff-6f4545d5994d"",
@@ -47,17 +38,6 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""6bdb1689-759b-43b9-bf85-58fefedc3aa5"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Teclado"",
-                    ""action"": ""Atirar"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": ""WASD"",
                     ""id"": ""8eaca045-9e03-4072-b167-94c0b50b2ed2"",
@@ -187,7 +167,6 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
 }");
         // GamePlay
         m_GamePlay = asset.FindActionMap("GamePlay", throwIfNotFound: true);
-        m_GamePlay_Atirar = m_GamePlay.FindAction("Atirar", throwIfNotFound: true);
         m_GamePlay_Movi = m_GamePlay.FindAction("Movi", throwIfNotFound: true);
     }
 
@@ -248,13 +227,11 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
     // GamePlay
     private readonly InputActionMap m_GamePlay;
     private IGamePlayActions m_GamePlayActionsCallbackInterface;
-    private readonly InputAction m_GamePlay_Atirar;
     private readonly InputAction m_GamePlay_Movi;
     public struct GamePlayActions
     {
         private @GameControls m_Wrapper;
         public GamePlayActions(@GameControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Atirar => m_Wrapper.m_GamePlay_Atirar;
         public InputAction @Movi => m_Wrapper.m_GamePlay_Movi;
         public InputActionMap Get() { return m_Wrapper.m_GamePlay; }
         public void Enable() { Get().Enable(); }
@@ -265,9 +242,6 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_GamePlayActionsCallbackInterface != null)
             {
-                @Atirar.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnAtirar;
-                @Atirar.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnAtirar;
-                @Atirar.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnAtirar;
                 @Movi.started -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMovi;
                 @Movi.performed -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMovi;
                 @Movi.canceled -= m_Wrapper.m_GamePlayActionsCallbackInterface.OnMovi;
@@ -275,9 +249,6 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
             m_Wrapper.m_GamePlayActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Atirar.started += instance.OnAtirar;
-                @Atirar.performed += instance.OnAtirar;
-                @Atirar.canceled += instance.OnAtirar;
                 @Movi.started += instance.OnMovi;
                 @Movi.performed += instance.OnMovi;
                 @Movi.canceled += instance.OnMovi;
@@ -296,7 +267,6 @@ public partial class @GameControls : IInputActionCollection2, IDisposable
     }
     public interface IGamePlayActions
     {
-        void OnAtirar(InputAction.CallbackContext context);
         void OnMovi(InputAction.CallbackContext context);
     }
 }

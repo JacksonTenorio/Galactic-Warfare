@@ -6,15 +6,6 @@
             "id": "f93b005b-6b43-4c2d-b169-5a8b06876a2a",
             "actions": [
                 {
-                    "name": "Atirar",
-                    "type": "Button",
-                    "id": "ac41b564-a8bb-489f-b98c-1914466ddd79",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Movi",
                     "type": "Value",
                     "id": "25b790ba-b8cb-453d-86ff-6f4545d5994d",
@@ -25,17 +16,6 @@
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "6bdb1689-759b-43b9-bf85-58fefedc3aa5",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Teclado",
-                    "action": "Atirar",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "WASD",
                     "id": "8eaca045-9e03-4072-b167-94c0b50b2ed2",
