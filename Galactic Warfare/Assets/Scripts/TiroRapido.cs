@@ -16,7 +16,7 @@ public class TiroRapido : MonoBehaviour
     void FixedUpdate()
     {
         rig.velocity = Vector2.right * velocidade;
-        Destroy(gameObject, 1.4f);
+        Destroy(gameObject, 1.5f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

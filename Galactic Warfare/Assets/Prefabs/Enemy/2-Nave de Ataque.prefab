@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 5148217691484486201}
   - component: {fileID: 5148217691484486196}
   - component: {fileID: 5148217691484486199}
+  - component: {fileID: -9158322321667811020}
   m_Layer: 0
-  m_Name: Nave de Ataque
+  m_Name: 2-Nave de Ataque
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,3 +134,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6545454, y: 1.4699361}
   m_EdgeRadius: 0
+--- !u!114 &-9158322321667811020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5148217691484486200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c550fd0673a764187c556df721a0bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Time: 0
+  _SpeedLeft: 3
+  _Enemy1: 0

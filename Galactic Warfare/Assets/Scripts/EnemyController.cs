@@ -6,25 +6,27 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     private Rigidbody2D rig;
+    private Transform tra;
 
-    public float _SpeedVertical;
+    public float _Time;
     public float _SpeedLeft;
     private float _SpeedRight = 0.5f;
-    private bool _Direction;
-    public bool _Enemy1;
+    private bool _Direction = true;
+    public bool _Enemy1 = true;
     private bool _Coroutine;
-    private bool _Start = false;
-    private void Start()
+    private bool _Start;
+    void Start()
     {
         rig = GetComponent<Rigidbody2D>();
+        tra = GetComponent<Transform>();
     }
 
-    private void FixedUpdate()
+    void Update()
     {
         Move();
+        Walk();
         MoveEnemy1();
         Vertical();
-        Walk();
     }
     private void Move()
     {
@@ -32,26 +34,10 @@ public class EnemyController : MonoBehaviour
         {
             rig.velocity = Vector2.left * _SpeedLeft;
         }
-        else
+        
+        if (_Direction == false && _Enemy1 == false)
         {
             rig.velocity = Vector2.right * _SpeedRight;
-        }
-    }
-
-    private void OnTriggerEnter(Collider Collision)
-    {
-        if (Collision.gameObject.tag == "Stop" && _Enemy1 == false)
-        {
-            _Direction = false;
-        }
-        else
-        {
-            _Direction = true;
-        }
-
-        if (Collision.gameObject.tag == "DeathZone")
-        {
-            Destroy(gameObject);
         }
     }
 
@@ -67,11 +53,27 @@ public class EnemyController : MonoBehaviour
     {
         if (_Coroutine == true && _Enemy1 == true)
         {
-            rig.velocity = Vector2.up * 1;
+            tra.position = new Vector2(transform.position.x, transform.position.y + 0.05f);
         }
         if (_Coroutine == false && _Enemy1 == true)
         {
-            rig.velocity = Vector2.down * 1;
+            tra.position = new Vector2(transform.position.x, transform.position.y - 0.05f);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "DeathZone")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D Collision)
+    {
+        if (Collision.gameObject.tag == "Stop" && _Enemy1 == false)
+        {
+            _Direction = false;
         }
     }
 
@@ -82,13 +84,13 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator OnWalk()
     {
-        if (_Start == false)
+        _Start = false;
+        while (_Start == false)
         {
-            _Start = true;
+            yield return new WaitForSeconds(_Time);
             _Coroutine = true;
-            yield return new WaitForSeconds(_SpeedVertical);
+            yield return new WaitForSeconds(_Time);
             _Coroutine = false;
-            _Start = false;
         }
     }
 }

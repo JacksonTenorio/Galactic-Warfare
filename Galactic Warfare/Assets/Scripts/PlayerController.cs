@@ -61,11 +61,11 @@ public class PlayerController : MonoBehaviour
     {
         if (_IsShooting == false)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
                 _IsShooting = true;
                 GameObject tiroRapido = Instantiate(_tiroRapido, _firePoint.position, _firePoint.rotation);
-                yield return new WaitForSeconds(0.3f);
+                yield return new WaitForSeconds(0.4f);
                 _IsShooting = false;
             }
         }
