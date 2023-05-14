@@ -6,58 +6,98 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     private Rigidbody2D rig;
-    private Transform tra;
+    private Transform positionPlayer;
+    private GameObject player;
+    private Transform positonStop;
+    private GameObject stop;
 
-    public float _Time;
-    public float _SpeedLeft;
-    private float _SpeedRight = 0.5f;
-    private bool _Direction = true;
-    public bool _Enemy1 = true;
-    private bool _Coroutine;
-    private bool _Start;
+    public float _timer;
+    public int _range;
+    private int _numero;
+    public float _Speed;
+    public bool _Enemy1;
+    public bool _Enemy2;
+    public bool _Enemy3;
     void Start()
     {
+        InvokeRepeating("Timer", 0f, _timer);
         rig = GetComponent<Rigidbody2D>();
-        tra = GetComponent<Transform>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        positionPlayer = player.transform;
+        stop = GameObject.FindGameObjectWithTag("Stop");
+        positonStop = stop.transform;
     }
 
     void Update()
     {
         Move();
-        Walk();
-        MoveEnemy1();
-        Vertical();
     }
     private void Move()
     {
-        if (_Direction == true && _Enemy1 == false)
-        {
-            rig.velocity = Vector2.left * _SpeedLeft;
-        }
-        
-        if (_Direction == false && _Enemy1 == false)
-        {
-            rig.velocity = Vector2.right * _SpeedRight;
-        }
-    }
-
-    private void MoveEnemy1()
-    {
         if (_Enemy1 == true)
         {
-            rig.velocity = Vector2.left * _SpeedLeft;
-        }
-    }
+            if (transform.position.x >= positionPlayer.position.x)
+            {
+                if (positionPlayer.gameObject != null)
+                {
+                    if (_numero == 1)
+                    {
+                        rig.velocity = Vector2.up * _Speed;
+                    }
+                    if (_numero == 2)
+                    {
+                        rig.velocity = Vector2.down * _Speed;
+                    }
 
-    private void Vertical()
-    {
-        if (_Coroutine == true && _Enemy1 == true)
-        {
-            tra.position = new Vector2(transform.position.x, transform.position.y + 0.05f);
+                    if (_numero == 3)
+                    {
+                        transform.position = Vector2.MoveTowards(transform.position, positionPlayer.position,
+                            _Speed * Time.deltaTime);
+                    }
+                }
+                else
+                {
+                    rig.velocity = Vector2.left * _Speed;
+                }
+            }
+            else
+            {
+                rig.velocity = Vector2.left * _Speed;
+            }
         }
-        if (_Coroutine == false && _Enemy1 == true)
+
+        if (_Enemy2 == true)
         {
-            tra.position = new Vector2(transform.position.x, transform.position.y - 0.05f);
+            if (transform.position.x >= positonStop.position.x)
+            {
+                if (positionPlayer.gameObject != null)
+                {
+                    if (_numero == 1)
+                    {
+                        rig.velocity = Vector2.left * _Speed;
+                    }
+                    if (_numero == 2)
+                    {
+                        rig.velocity = Vector2.right * _Speed;
+                    }
+                    if (_numero == 3)
+                    {
+                        rig.velocity = Vector2.up * _Speed;
+                    }
+                    if (_numero == 4)
+                    {
+                        rig.velocity = Vector2.down * _Speed;
+                    }
+                }
+                else
+                {
+                    rig.velocity = Vector2.left * _Speed;
+                }
+            }
+            else
+            {
+                rig.velocity = Vector2.left * _Speed;
+            }
         }
     }
 
@@ -69,28 +109,8 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D Collision)
+    private void Timer()
     {
-        if (Collision.gameObject.tag == "Stop" && _Enemy1 == false)
-        {
-            _Direction = false;
-        }
-    }
-
-    private void Walk()
-    {
-        StartCoroutine("OnWalk");
-    }
-
-    IEnumerator OnWalk()
-    {
-        _Start = false;
-        while (_Start == false)
-        {
-            yield return new WaitForSeconds(_Time);
-            _Coroutine = true;
-            yield return new WaitForSeconds(_Time);
-            _Coroutine = false;
-        }
+        _numero = UnityEngine.Random.Range(1,_range);
     }
 }

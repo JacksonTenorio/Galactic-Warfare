@@ -43,7 +43,7 @@ public class Cam : MonoBehaviour
         if (_1 == true)
         {
             _1 = false;
-            GameObject enemy1 = Instantiate(_Enemy1, _Spawn2.position, _Spawn2.rotation);
+            GameObject enemy1 = Instantiate(_Enemy1, _Spawn3.position, _Spawn2.rotation);
             yield return new WaitForSeconds(5f);
             //_1 = true;
         }
