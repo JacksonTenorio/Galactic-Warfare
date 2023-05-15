@@ -167,9 +167,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _FirePoint: {fileID: 759513722621700754}
+  _FirePoint2: {fileID: 0}
   _BulletPrefab: {fileID: 3350152209249023942, guid: c201c6fedfde4b64e87ee1f8de344a94, type: 3}
-  _FireRate: 2
+  _FireRate: 1.5
   _Speed: 10
+  _Enemy2: 0
+  _Range: 60
+  _Range2: -61
 --- !u!1 &2118350195401900539
 GameObject:
   m_ObjectHideFlags: 0
