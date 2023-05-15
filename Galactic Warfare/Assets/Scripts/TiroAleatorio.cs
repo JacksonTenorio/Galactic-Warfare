@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class TiroAleatorio : MonoBehaviour
 {
+    public Transform _FirePoint;
     public GameObject _BulletPrefab;
     public float _FireRate = 2f;
     public float _Speed = 10f;
 
-    private float _FireTimer = 0f; // A timer to control the rate of fire
+    private float _FireTimer = 0f;
 
     // Update is called once per frame
     void Update()
@@ -23,14 +24,19 @@ public class TiroAleatorio : MonoBehaviour
             _FireTimer = 0f;
 
             // Calcula a direção de bala
-            float angle = Random.Range(-120f, 120f);
+            float angle = Random.Range(60f, -61f);
             Quaternion rotation = Quaternion.Euler(0f, 0f, angle);
-            Vector2 direction = rotation * Vector2.right;
+            Vector2 direction = rotation * Vector2.left;
 
             // Cria a bala e adicona a velocidade
-            GameObject bullet = Instantiate(_BulletPrefab, transform.position, Quaternion.identity);
+            GameObject bullet = Instantiate(_BulletPrefab, _FirePoint.position, rotation/*Quaternion.identity*/);
             Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
             bulletRb.velocity = direction * _Speed;
+            Invoke("Destruction", 2f);
         }
+    }
+    private void Destruction()
+    {
+        Destroy(GameObject.FindGameObjectWithTag("Laser"));
     }
 }

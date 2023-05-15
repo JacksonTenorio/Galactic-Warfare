@@ -99,6 +99,11 @@ public class EnemyController : MonoBehaviour
                 rig.velocity = Vector2.left * _Speed;
             }
         }
+
+        if (_Enemy3 == true)
+        {
+            rig.velocity = Vector2.left * _Speed;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

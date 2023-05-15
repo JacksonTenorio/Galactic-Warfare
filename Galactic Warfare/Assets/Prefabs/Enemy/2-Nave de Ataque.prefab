@@ -148,7 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64c550fd0673a764187c556df721a0bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
   _timer: 1
   _range: 5
   _Speed: 3
@@ -242,7 +241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3350152209249023938, guid: 18327aba2f4d66247b3b65cfa124c92d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.135
+      value: -0.163
       objectReference: {fileID: 0}
     - target: {fileID: 3350152209249023938, guid: 18327aba2f4d66247b3b65cfa124c92d, type: 3}
       propertyPath: m_LocalPosition.y
