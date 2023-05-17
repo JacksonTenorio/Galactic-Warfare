@@ -14,6 +14,8 @@ public class EnemyController : MonoBehaviour
     public float _timer;
     public int _range;
     private int _numero;
+    
+    static public bool _Start;
     public float _Speed;
     public bool _Enemy1;
     public bool _Enemy2;
@@ -49,10 +51,9 @@ public class EnemyController : MonoBehaviour
                         rig.velocity = Vector2.down * _Speed;
                     }
 
-                    if (_numero == 3)
+                    if (_numero == 3 || _numero == 4)
                     {
-                        transform.position = Vector2.MoveTowards(transform.position, positionPlayer.position,
-                            _Speed * Time.deltaTime);
+                        transform.position = Vector2.MoveTowards(transform.position, positionPlayer.position, _Speed * Time.deltaTime);
                     }
                 }
                 else
@@ -78,13 +79,9 @@ public class EnemyController : MonoBehaviour
                     }
                     if (_numero == 2)
                     {
-                        rig.velocity = Vector2.right * _Speed;
-                    }
-                    if (_numero == 3)
-                    {
                         rig.velocity = Vector2.up * _Speed;
                     }
-                    if (_numero == 4)
+                    if (_numero == 3)
                     {
                         rig.velocity = Vector2.down * _Speed;
                     }
@@ -111,6 +108,27 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.tag == "DeathZone")
         {
             Destroy(gameObject);
+        }
+
+        if (_Enemy1 == true && collision.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Start")
+        {
+            _Start = false;
+        }
+    }
+    
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Start")
+        {
+            _Start = true;
         }
     }
 

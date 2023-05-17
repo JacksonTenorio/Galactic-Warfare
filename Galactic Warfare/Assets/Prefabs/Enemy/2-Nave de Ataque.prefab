@@ -234,7 +234,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timer: 1
-  _range: 5
+  _range: 4
   _Speed: 3
   _Enemy1: 0
   _Enemy2: 1
@@ -253,10 +253,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _FirePoint: {fileID: 6397224470669665780}
   _FirePoint2: {fileID: 8854503036192399520}
+  _FirePoint3: {fileID: 0}
+  _FirePoint4: {fileID: 0}
   _BulletPrefab: {fileID: 3350152209249023942, guid: c201c6fedfde4b64e87ee1f8de344a94, type: 3}
+  _BulletPrefab2: {fileID: 0}
   _FireRate: 1
   _Speed: 10
   _Enemy2: 1
+  _Enemy3: 0
   _Range: 30
   _Range2: -31
 --- !u!1 &8855842814388326984

@@ -10,12 +10,13 @@ public class Cam : MonoBehaviour
     [SerializeField] private Transform _Spawn1;
     [SerializeField] private Transform _Spawn2;
     [SerializeField] private Transform _Spawn3;
+    
+    private Rigidbody2D rig;
 
     private bool _1 = true;
     private bool _2 = true;
     private bool _3 = true;
     
-    private Rigidbody2D rig;
     public float velocidade;
     
     // Start is called before the first frame update
@@ -44,8 +45,8 @@ public class Cam : MonoBehaviour
         {
             _1 = false;
             GameObject enemy1 = Instantiate(_Enemy1, _Spawn3.position, _Spawn2.rotation);
-            yield return new WaitForSeconds(5f);
-            //_1 = true;
+            yield return new WaitForSeconds(10f);
+            _1 = true;
         }
         
         yield return new WaitForSeconds(20f);
@@ -55,8 +56,8 @@ public class Cam : MonoBehaviour
             _2 = false;
             GameObject enemy2 = Instantiate(_Enemy2, _Spawn1.position, _Spawn1.rotation);
             GameObject enemy_2 = Instantiate(_Enemy2, _Spawn3.position, _Spawn3.rotation);
-            yield return new WaitForSeconds(10f);
-            //_2 = true;
+            yield return new WaitForSeconds(20f);
+            _2 = true;
         }
         
         yield return new WaitForSeconds(40f);
@@ -65,8 +66,8 @@ public class Cam : MonoBehaviour
         {
             _3 = false;
             GameObject enemy3 = Instantiate(_Enemy3, _Spawn2.position, _Spawn1.rotation);
-            yield return new WaitForSeconds(15f);
-            //3 = true;
+            yield return new WaitForSeconds(30f);
+            _3 = true;
         }
 
         yield return new WaitForSeconds(60f);
