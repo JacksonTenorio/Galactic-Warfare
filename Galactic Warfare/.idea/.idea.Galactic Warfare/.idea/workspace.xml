@@ -9,16 +9,8 @@
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy/1-Caca Estelar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy/1-Caca Estelar.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy/2-Nave de Ataque.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy/2-Nave de Ataque.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy/3-Cruzador de Batalha.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy/3-Cruzador de Batalha.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Fire/TiroRapido.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Fire/TiroRapido.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyHP.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyHP.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerHP.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerHP.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TiroAleatorio.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TiroAleatorio.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/TiroRapido.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TiroRapido.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +108,7 @@
       <workItem from="1684325023854" duration="9906000" />
       <workItem from="1684891957098" duration="17069000" />
       <workItem from="1684911332964" duration="570000" />
+      <workItem from="1684923674598" duration="5599000" />
     </task>
     <servers />
   </component>

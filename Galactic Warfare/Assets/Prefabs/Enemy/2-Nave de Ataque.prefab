@@ -277,7 +277,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9523d64e50e50364a9745846e143c04c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _MaxHP: 10
+  _Enemy1: 0
+  _Enemy2: 1
+  _Enemy3: 0
+  _escudo: {fileID: 8061408676146820065}
+  _MaxHP: 4
+  _escudoHPMax: 3
+  _escudoHPAtual: 0
 --- !u!1 &8061408676146820065
 GameObject:
   m_ObjectHideFlags: 0
