@@ -1,17 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyHP : MonoBehaviour
 {
-    [SerializeField] private float _MaxHP;
-    [SerializeField] private int _Damege;
-    
-    private float _HPAtual;
+    public static GameObject _escudo;
 
-    // Update is called once per frame
-    void FixedUpdate()
+    public int _MaxHP;
+    public static int _HPAtual;
+    public static int _escudoHP = 3;
+
+    private void Start()
     {
-        _MaxHP = _MaxHP - _HPAtual;
+        _escudo = GameObject.Find("Escudo");
     }
 }

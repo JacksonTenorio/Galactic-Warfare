@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 3738671562660371136}
   - component: {fileID: 3738671562660371143}
   - component: {fileID: 3738671562660371142}
-  - component: {fileID: -3502998842107164359}
   - component: {fileID: 4118209327872067010}
+  - component: {fileID: -3502998842107164359}
   m_Layer: 0
   m_Name: TiroRapido
-  m_TagString: Untagged
+  m_TagString: Bala
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,19 +108,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &-3502998842107164359
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3738671562660371141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5e48bef6552f3b4a839a72ace46e1e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocidade: 8
 --- !u!61 &4118209327872067010
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -147,3 +134,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.35, y: 1.35}
   m_EdgeRadius: 0
+--- !u!114 &-3502998842107164359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3738671562660371141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5e48bef6552f3b4a839a72ace46e1e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidade: 8

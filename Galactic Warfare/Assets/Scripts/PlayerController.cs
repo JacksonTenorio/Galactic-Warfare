@@ -48,8 +48,6 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         Tiro1();
-
-        
     }
     
     // Chama a função.
@@ -71,7 +69,5 @@ public class PlayerController : MonoBehaviour
                 _IsShooting = false;
             }
         }
-        
-        
     }
 }

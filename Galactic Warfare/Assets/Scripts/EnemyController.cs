@@ -123,7 +123,20 @@ public class EnemyController : MonoBehaviour
             _Start = false;
         }
     }
-    
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "DeathZone")
+        {
+            Destroy(gameObject);
+        }
+        
+        if (_Enemy1 == true && col.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Start")

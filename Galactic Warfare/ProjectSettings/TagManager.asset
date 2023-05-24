@@ -9,6 +9,9 @@ TagManager:
   - DeathZone
   - Laser
   - Start
+  - ScoreText
+  - Escudo
+  - Bala
   layers:
   - Default
   - TransparentFX

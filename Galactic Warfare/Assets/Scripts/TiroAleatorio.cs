@@ -82,11 +82,13 @@ public class TiroAleatorio : MonoBehaviour
             Invoke("Destruction", 2f);
         }
     }
+    // Destroi a bala
     private void Destruction()
     {
         Destroy(GameObject.FindGameObjectWithTag("Laser"));
     }
-
+    
+    // Sorteador
     private void Timer()
     {
         _Chance = Random.Range(1, 5);

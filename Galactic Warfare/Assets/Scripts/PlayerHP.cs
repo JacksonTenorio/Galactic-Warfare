@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -6,39 +7,68 @@ using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour
 {
-    public Slider _BarraDeVida;
-
-    private int _VidaMaxima = 10;
-    private int _VidaAtual;
-
-    private bool _Escudo;
+    public Slider _healthBar;
     
-    // Start is called before the first frame update
-    void Start()
+    private float _currentHealth;
+    public float _maxHealth;
+    
+    public int _damageAmount = 5;
+    public int _recoveryAmount = 10;
+
+    private void Start()
     {
-        _VidaAtual = _VidaMaxima;
-        _BarraDeVida.maxValue = _VidaMaxima;
-        _BarraDeVida.value = _VidaAtual;
+        _currentHealth = _maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-    }
-
-    private void Damege(int Dano)
-    {
-        if (_Escudo == false)
+        if (_maxHealth < 0)
         {
-            _VidaAtual -= Dano;
-            _BarraDeVida.value = _VidaAtual;
-
-            if (_VidaAtual <= 0)
-            {
-                Debug.Log("Game Over");
-            }
+            _maxHealth = 0;
         }
+
+        if (_maxHealth > 100)
+        {
+            _maxHealth = 100;
+        }
+    }
+
+    public void TakeDamage(float damage = -1)
+    {
+        if (damage < 0)
+            damage = _damageAmount;
         
+        _currentHealth -= damage;
+        UpdateHealthBar();
+    }
+    
+    public void RecoverHealth(float recovery = -1)
+    {
+        if (recovery < 0)
+            recovery = _recoveryAmount;
         
+        _currentHealth += recovery;
+        UpdateHealthBar();
+    }
+    
+    void UpdateHealthBar()
+    {
+        _healthBar.value -= (_maxHealth - _currentHealth);
+    }
+
+    public void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Laser")
+        {
+            TakeDamage(1);
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Enemy")
+        {
+            TakeDamage(3);
+        }
     }
 }
