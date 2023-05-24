@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour
@@ -19,17 +20,18 @@ public class PlayerHP : MonoBehaviour
     {
         _currentHealth = _maxHealth;
     }
-
-    private void Update()
+    
+    void Update()
     {
-        if (_maxHealth < 0)
+        if (_currentHealth <= 0)
         {
-            _maxHealth = 0;
+            _currentHealth = 0;
+            SceneManager.LoadScene("Level1");
         }
 
-        if (_maxHealth > 100)
+        if (_currentHealth > 100)
         {
-            _maxHealth = 100;
+            _currentHealth = 100;
         }
     }
 
@@ -53,14 +55,14 @@ public class PlayerHP : MonoBehaviour
     
     void UpdateHealthBar()
     {
-        _healthBar.value -= (_maxHealth - _currentHealth);
+        _healthBar.value = _currentHealth;
     }
 
     public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Laser")
         {
-            TakeDamage(1);
+            TakeDamage(10);
         }
     }
 
@@ -68,7 +70,7 @@ public class PlayerHP : MonoBehaviour
     {
         if (col.gameObject.tag == "Enemy")
         {
-            TakeDamage(3);
+            TakeDamage(20);
         }
     }
 }

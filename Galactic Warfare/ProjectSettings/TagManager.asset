@@ -12,6 +12,7 @@ TagManager:
   - ScoreText
   - Escudo
   - Bala
+  - Barreira
   layers:
   - Default
   - TransparentFX

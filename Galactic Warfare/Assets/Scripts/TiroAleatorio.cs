@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -60,7 +61,7 @@ public class TiroAleatorio : MonoBehaviour
             GameObject bullet = Instantiate(_BulletPrefab, _FirePoint.position, rotation);
             Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
             bulletRb.velocity = direction * _Speed;
-            
+
             if (_Enemy2 == true)
             {
                 GameObject bullet2 = Instantiate(_BulletPrefab, _FirePoint2.position, rotation);
@@ -78,19 +79,30 @@ public class TiroAleatorio : MonoBehaviour
                 bulletRb3.velocity = Vector2.left * _Speed;
                 bulletRb4.velocity = Vector2.left * _Speed;
             }
-            
-            Invoke("Destruction", 2f);
         }
     }
-    // Destroi a bala
-    private void Destruction()
-    {
-        Destroy(GameObject.FindGameObjectWithTag("Laser"));
-    }
     
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Barreira")
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Barreira")
+        {
+            Destroy(gameObject);
+        }
+    }
+
     // Sorteador
     private void Timer()
     {
         _Chance = Random.Range(1, 5);
     }
+    
+    
 }

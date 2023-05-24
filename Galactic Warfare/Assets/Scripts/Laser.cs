@@ -1,0 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Laser : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        InvokeRepeating("Destroy", 2, 2);
+    }
+
+    private void Destroy()
+    {
+        Destroy(gameObject);
+    }
+}

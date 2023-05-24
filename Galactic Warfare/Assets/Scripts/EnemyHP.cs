@@ -5,91 +5,47 @@ using UnityEngine;
 
 public class EnemyHP : MonoBehaviour
 {
-    private ScoreManager scoreManager;
+    public GameObject _Enemy1;
+    public GameObject _Enemy2;
+    public GameObject _Enemy3;
     
-    public bool _Enemy1;
-    public bool _Enemy2;
-    public bool _Enemy3;
-
-    public GameObject _escudo;
+    private ScoreManager scoreManager;
 
     public int _MaxHP;
-    public static int _HPAtual;
-    
-    public int _escudoHPMax = 3;
-    public int _escudoHPAtual;
-    private bool _escudoAtivado;
+    private int _HPAtual;
+    private bool _estaVivo;
     
     private void Start()
     {
         scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
         _HPAtual = _MaxHP;
-        _escudoHPAtual = _escudoHPMax;
-        _escudoAtivado = true;
+        _estaVivo = true;
+    }
+
+    private void Update()
+    {
+        if (_Enemy1 != null || _Enemy2 != null || _Enemy3 != null)
+        {
+            _estaVivo = true;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (_Enemy1 == true && col.gameObject.tag == "Bala")
+        if (Escudo._escudoAtivado == false)
         {
-            _HPAtual -= 1;
-            Destroy(col.gameObject);
-
-            if (_HPAtual <= 0)
+            if (col.gameObject.tag == "Bala" && _estaVivo == true)
             {
-                Destroy(gameObject);
-                scoreManager.IncreaseScore();
-            }
-        }
-        if (_Enemy2 == true && col.gameObject.tag == "Bala")
-        {
-            _escudo.SetActive(true);
-            _escudoAtivado = true;
-            
-            _escudoHPAtual -= 1;
-            Destroy(col.gameObject);
+                _estaVivo = true;
+                _HPAtual -= 1;
+                Destroy(col.gameObject);
 
-            if (_escudoHPAtual <= 0)
-            {
-                _escudo.SetActive(false);
-                _escudoAtivado = false;
-            }
-        }
-        if (_Enemy2 == true && _escudoAtivado == false && col.gameObject.tag == "Bala")
-        {
-            _HPAtual -= 1;
-            Destroy(col.gameObject);
-
-            if (_HPAtual <= 0)
-            {
-                Destroy(gameObject);
-                scoreManager.IncreaseScore();
-            }
-        }
-        
-        if (_Enemy3 == true && col.gameObject.tag == "Bala")
-        {
-            _escudo.SetActive(true);
-            _escudoAtivado = true;
-            
-            _escudoHPAtual -= 1;
-            Destroy(col.gameObject);
-
-            if (_escudoHPAtual <= 0)
-            {
-                _escudo.SetActive(false);
-                _escudoAtivado = false;
-            }
-        }
-        if (_Enemy3 == true && _escudoAtivado == false && col.gameObject.tag == "Bala")
-        {
-            _HPAtual -= 1;
-            Destroy(col.gameObject);
-
-            if (_HPAtual <= 0)
-            {
-                Destroy(gameObject);
-                scoreManager.IncreaseScore();
+                if (_HPAtual <= 0)
+                {
+                    Destroy(gameObject);
+                    scoreManager.IncreaseScore();
+                    _estaVivo = false;
+                }
             }
         }
     }

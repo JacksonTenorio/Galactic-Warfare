@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Cam : MonoBehaviour
 {
@@ -55,7 +57,7 @@ public class Cam : MonoBehaviour
         {
             _2 = false;
             GameObject enemy2 = Instantiate(_Enemy2, _Spawn1.position, _Spawn1.rotation);
-            GameObject enemy_2 = Instantiate(_Enemy2, _Spawn3.position, _Spawn3.rotation);
+            //GameObject enemy_2 = Instantiate(_Enemy2, _Spawn3.position, _Spawn3.rotation);
             yield return new WaitForSeconds(20f);
             _2 = true;
         }
