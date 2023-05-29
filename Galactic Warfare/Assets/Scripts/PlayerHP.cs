@@ -8,9 +8,11 @@ using UnityEngine.UI;
 
 public class PlayerHP : MonoBehaviour
 {
-    public Slider _healthBar;
+    private ScoreManager scoreManager;
     
-    private float _currentHealth;
+    public Slider _healthBar;
+
+    public float _currentHealth;
     public float _maxHealth;
     
     public int _damageAmount = 5;
@@ -18,17 +20,19 @@ public class PlayerHP : MonoBehaviour
 
     private void Start()
     {
+        scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
         _currentHealth = _maxHealth;
     }
     
     void Update()
     {
-        if (_currentHealth <= 0)
+        if (_currentHealth <= 0 )
         {
             _currentHealth = 0;
+            scoreManager.Life();
             SceneManager.LoadScene("Level1");
         }
-
+        
         if (_currentHealth > 100)
         {
             _currentHealth = 100;

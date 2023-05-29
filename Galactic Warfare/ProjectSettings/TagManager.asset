@@ -13,6 +13,7 @@ TagManager:
   - Escudo
   - Bala
   - Barreira
+  - Vidas
   layers:
   - Default
   - TransparentFX

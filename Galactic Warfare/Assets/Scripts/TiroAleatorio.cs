@@ -103,6 +103,4 @@ public class TiroAleatorio : MonoBehaviour
     {
         _Chance = Random.Range(1, 5);
     }
-    
-    
 }
