@@ -38,9 +38,9 @@ public class EnemyController : MonoBehaviour
     {
         if (_Enemy1 == true)
         {
-            if (transform.position.x >= positionPlayer.position.x)
+            if (player != null)
             {
-                if (positionPlayer.gameObject != null)
+                if (transform.position.x >= positionPlayer.position.x)
                 {
                     if (_numero == 1)
                     {
@@ -56,10 +56,6 @@ public class EnemyController : MonoBehaviour
                         transform.position = Vector2.MoveTowards(transform.position, positionPlayer.position, _Speed * Time.deltaTime);
                     }
                 }
-                else
-                {
-                    rig.velocity = Vector2.left * _Speed;
-                }
             }
             else
             {
@@ -71,24 +67,17 @@ public class EnemyController : MonoBehaviour
         {
             if (transform.position.x >= positonStop.position.x)
             {
-                if (positionPlayer.gameObject != null)
-                {
-                    if (_numero == 1)
-                    {
-                        rig.velocity = Vector2.left * _Speed;
-                    }
-                    if (_numero == 2)
-                    {
-                        rig.velocity = Vector2.up * _Speed;
-                    }
-                    if (_numero == 3)
-                    {
-                        rig.velocity = Vector2.down * _Speed;
-                    }
-                }
-                else
+                if (_numero == 1)
                 {
                     rig.velocity = Vector2.left * _Speed;
+                }
+                if (_numero == 2)
+                {
+                    rig.velocity = Vector2.up * _Speed;
+                }
+                if (_numero == 3)
+                {
+                    rig.velocity = Vector2.down * _Speed;
                 }
             }
             else

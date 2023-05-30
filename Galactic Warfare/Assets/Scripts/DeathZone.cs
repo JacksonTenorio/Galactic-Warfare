@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DeathZone : MonoBehaviour
 {
@@ -17,18 +18,12 @@ public class DeathZone : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            Invoke("LoadScene", 1f);
+            scoreManager.Life();
         }
         
         if (col.gameObject.tag == "Enemy")
         {
             Destroy(col.gameObject);
         }
-    }
-
-    private void LoadScene()
-    {
-        scoreManager.Life();
-        SceneManager.LoadScene("Level1");
     }
 }

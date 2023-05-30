@@ -14,6 +14,7 @@ TagManager:
   - Bala
   - Barreira
   - Vidas
+  - Slider
   layers:
   - Default
   - TransparentFX

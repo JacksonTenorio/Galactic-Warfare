@@ -12,7 +12,7 @@ public class PlayerHP : MonoBehaviour
     
     public Slider _healthBar;
 
-    public float _currentHealth;
+    private float _currentHealth;
     public float _maxHealth;
     
     public int _damageAmount = 5;
@@ -20,6 +20,7 @@ public class PlayerHP : MonoBehaviour
 
     private void Start()
     {
+        _healthBar = GameObject.FindGameObjectWithTag("Slider").GetComponent<Slider>();
         scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
         _currentHealth = _maxHealth;
     }
@@ -30,7 +31,6 @@ public class PlayerHP : MonoBehaviour
         {
             _currentHealth = 0;
             scoreManager.Life();
-            SceneManager.LoadScene("Level1");
         }
         
         if (_currentHealth > 100)
@@ -57,7 +57,7 @@ public class PlayerHP : MonoBehaviour
         UpdateHealthBar();
     }
     
-    void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         _healthBar.value = _currentHealth;
     }
