@@ -18,4 +18,12 @@ public class TiroRapido : MonoBehaviour
         rig.velocity = Vector2.right * velocidade;
         Destroy(gameObject, 1.5f);
     }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

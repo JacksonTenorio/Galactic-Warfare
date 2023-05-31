@@ -56,6 +56,10 @@ public class EnemyController : MonoBehaviour
                         transform.position = Vector2.MoveTowards(transform.position, positionPlayer.position, _Speed * Time.deltaTime);
                     }
                 }
+                else
+                {
+                    rig.velocity = Vector2.left * _Speed;
+                }
             }
             else
             {

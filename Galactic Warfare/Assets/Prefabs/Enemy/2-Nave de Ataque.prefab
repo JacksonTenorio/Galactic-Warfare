@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c72a0bb53e5bce4a931c82e0d4efb11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemy1: 0
 --- !u!1 &4388359831660789956
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,9 +392,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9523d64e50e50364a9745846e143c04c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Enemy1: {fileID: 2721622080050678806, guid: 21142c1fb0a5e734db81285b3d2085b8, type: 3}
+  _Enemy1: {fileID: 0}
   _Enemy2: {fileID: 5148217691484486200}
-  _Enemy3: {fileID: 1137438452854181953, guid: 5a2db43215ba7f547b62f77438d2ad0d, type: 3}
+  _Enemy3: {fileID: 0}
   _MaxHP: 3
 --- !u!1 &8855842814388326984
 GameObject:

@@ -17,7 +17,6 @@ public class PlayerHP : MonoBehaviour
     
     public int _damageAmount = 5;
     public int _recoveryAmount = 10;
-
     private void Start()
     {
         _healthBar = GameObject.FindGameObjectWithTag("Slider").GetComponent<Slider>();

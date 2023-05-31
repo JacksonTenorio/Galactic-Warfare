@@ -60,7 +60,7 @@ public class Cam : MonoBehaviour
         {
             _1 = false;
             GameObject enemy1 = Instantiate(_Enemy1, _Spawn3.position, _Spawn2.rotation);
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(10.2f);
             _1 = true;
         }
         
@@ -71,7 +71,7 @@ public class Cam : MonoBehaviour
             _2 = false;
             GameObject enemy2 = Instantiate(_Enemy2, _Spawn1.position, _Spawn1.rotation);
             //GameObject enemy_2 = Instantiate(_Enemy2, _Spawn3.position, _Spawn3.rotation);
-            yield return new WaitForSeconds(20f);
+            yield return new WaitForSeconds(20.3f);
             _2 = true;
         }
         
@@ -82,7 +82,7 @@ public class Cam : MonoBehaviour
         {
             _3 = false;
             GameObject enemy3 = Instantiate(_Enemy3, _Spawn2.position, _Spawn1.rotation);
-            yield return new WaitForSeconds(15f);
+            yield return new WaitForSeconds(15.01f);
             _3 = true;
         }
 

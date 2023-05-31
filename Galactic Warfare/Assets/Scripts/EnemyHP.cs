@@ -14,7 +14,7 @@ public class EnemyHP : MonoBehaviour
     public int _MaxHP;
     private int _HPAtual;
     private bool _estaVivo;
-    
+
     private void Start()
     {
         scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
@@ -36,15 +36,14 @@ public class EnemyHP : MonoBehaviour
         {
             if (col.gameObject.tag == "Bala" && _estaVivo == true)
             {
-                _estaVivo = true;
                 _HPAtual -= 1;
                 Destroy(col.gameObject);
 
                 if (_HPAtual <= 0)
                 {
-                    Destroy(gameObject);
                     scoreManager.IncreaseScore();
                     _estaVivo = false;
+                    Destroy(gameObject);
                 }
             }
         }

@@ -18,14 +18,13 @@ public class Escudo : MonoBehaviour
     {
         if (col.gameObject.tag == "Bala" && _escudoAtivado == true)
         {
-            _escudoAtivado = true;
             _escudoHPAtual -= 1;
             Destroy(col.gameObject);
             
             if (_escudoHPAtual <= 0)
             {
-                Destroy(gameObject);
                 _escudoAtivado = false;
+                Destroy(gameObject);
             }
         }
     }
