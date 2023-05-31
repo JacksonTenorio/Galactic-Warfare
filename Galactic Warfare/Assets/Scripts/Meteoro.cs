@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class Meteoro : MonoBehaviour
 {
+    private ScoreManager scoreManager;
+
     private Rigidbody2D rig;
     public float speed;
     void Start()
     {
+        scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
         rig = GetComponent<Rigidbody2D>();
     }
 
@@ -29,17 +32,13 @@ public class Meteoro : MonoBehaviour
         rig.velocity = Vector2.left * speed;
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Bala")
         {
+            scoreManager.IncreaseScore();
             Destroy(col.gameObject);
             Destroy(gameObject);
-        }
-
-        if (col.gameObject.tag == "Player")
-        {
-            SceneManager.LoadScene("Level1");
         }
     }
 }

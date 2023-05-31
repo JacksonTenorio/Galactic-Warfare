@@ -43,6 +43,8 @@ public class Cam : MonoBehaviour
 
     IEnumerator SpawnEnemy()
     {
+        yield return new WaitForSeconds(5f);
+        
         if (_4 == true)
         {
             _4 = false;
@@ -51,14 +53,14 @@ public class Cam : MonoBehaviour
             _4 = true;
         }
         
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(20f);
         
         
         if (_1 == true)
         {
             _1 = false;
             GameObject enemy1 = Instantiate(_Enemy1, _Spawn3.position, _Spawn2.rotation);
-            yield return new WaitForSeconds(15f);
+            yield return new WaitForSeconds(10f);
             _1 = true;
         }
         
@@ -73,18 +75,18 @@ public class Cam : MonoBehaviour
             _2 = true;
         }
         
-        yield return new WaitForSeconds(40f);
+        yield return new WaitForSeconds(20f);
         _4 = false;
 
         if (_3 == true)
         {
             _3 = false;
             GameObject enemy3 = Instantiate(_Enemy3, _Spawn2.position, _Spawn1.rotation);
-            yield return new WaitForSeconds(25f);
+            yield return new WaitForSeconds(15f);
             _3 = true;
         }
 
-        yield return new WaitForSeconds(60f);
+        yield return new WaitForSeconds(50f);
         _1 = false;
         _2 = false;
         _3 = false;

@@ -53,9 +53,11 @@ public class ScoreManager : MonoBehaviour
         scoreLifeText.text = "X" + scoreLife.ToString();
         
         Destroy(GameObject.FindGameObjectWithTag("Player"));
+        
         GameObject player = Instantiate(_Player, _SpawnPlayer.position, _Player.transform.rotation);
         playerHp._recoveryAmount = 100;
         playerHp._healthBar.value = playerHp._recoveryAmount;
+        
         if (scoreLife <= 0)
         {
             SceneManager.LoadScene("Level1");
