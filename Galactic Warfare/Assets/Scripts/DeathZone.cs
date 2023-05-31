@@ -24,6 +24,7 @@ public class DeathZone : MonoBehaviour
         if (col.gameObject.tag == "Enemy")
         {
             Destroy(col.gameObject);
+            Destroy(gameObject);
         }
     }
 }

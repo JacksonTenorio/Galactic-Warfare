@@ -459,6 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 7816069089303949929, guid: b17820ff96359254da7f42c1e6c9d4ef, type: 3}
+  playerHp: {fileID: 0}
   _SpawnPlayer: {fileID: 812742957}
   scoreText: {fileID: 926206313}
   scoreLifeText: {fileID: 2106135380}
@@ -608,6 +609,7 @@ MonoBehaviour:
   _Enemy1: {fileID: 2721622080050678806, guid: 21142c1fb0a5e734db81285b3d2085b8, type: 3}
   _Enemy2: {fileID: 5148217691484486200, guid: 342a033895db20d4098179ce7da3fd2f, type: 3}
   _Enemy3: {fileID: 1137438452854181953, guid: 5a2db43215ba7f547b62f77438d2ad0d, type: 3}
+  _Meteoro: {fileID: 6784134361446578014, guid: 4aeef4110d15ecb4c870501620e6baec, type: 3}
   _Spawn1: {fileID: 850362089}
   _Spawn2: {fileID: 958923185}
   _Spawn3: {fileID: 53537906}
