@@ -114,7 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c72a0bb53e5bce4a931c82e0d4efb11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemy1: 0
+  _Escudo1: 1
+  _Escudo2: 0
 --- !u!1 &4388359831660789956
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +397,9 @@ MonoBehaviour:
   _Enemy2: {fileID: 5148217691484486200}
   _Enemy3: {fileID: 0}
   _MaxHP: 3
+  _1: 0
+  _2: 1
+  _3: 0
 --- !u!1 &8855842814388326984
 GameObject:
   m_ObjectHideFlags: 0

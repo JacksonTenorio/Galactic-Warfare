@@ -86,7 +86,7 @@ public class Cam : MonoBehaviour
             _3 = true;
         }
 
-        yield return new WaitForSeconds(50f);
+        yield return new WaitForSeconds(30f);
         _1 = false;
         _2 = false;
         _3 = false;

@@ -13,18 +13,29 @@ public class EnemyHP : MonoBehaviour
 
     public int _MaxHP;
     private int _HPAtual;
+    
     private bool _estaVivo;
+    public bool _1;
+    public bool _2;
+    public bool _3;
 
     private void Start()
     {
         scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
         _HPAtual = _MaxHP;
-        _estaVivo = true;
     }
 
     private void Update()
     {
-        if (_Enemy1 != null || _Enemy2 != null || _Enemy3 != null)
+        if (_Enemy1 != null)
+        {
+            _estaVivo = true;
+        }
+        if (_Enemy2 != null)
+        {
+            _estaVivo = true;
+        }
+        if (_Enemy3 != null)
         {
             _estaVivo = true;
         }
@@ -32,7 +43,7 @@ public class EnemyHP : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (Escudo._escudoAtivado == false)
+        if (_1 == true)
         {
             if (col.gameObject.tag == "Bala" && _estaVivo == true)
             {
@@ -44,6 +55,44 @@ public class EnemyHP : MonoBehaviour
                     scoreManager.IncreaseScore();
                     _estaVivo = false;
                     Destroy(gameObject);
+                }
+            }
+        }
+
+        if (_2 == true)
+        {
+            if (Escudo._escudoAtivado1 == false)
+            {
+                if (col.gameObject.tag == "Bala" && _estaVivo == true)
+                {
+                    _HPAtual -= 1;
+                    Destroy(col.gameObject);
+                    
+                    if (_HPAtual <= 0)
+                    {
+                        scoreManager.IncreaseScore();
+                        _estaVivo = false;
+                        Destroy(gameObject);
+                    }
+                }
+            }
+        }
+        
+        if (_3 == true)
+        {
+            if (Escudo._escudoAtivado2 == false)
+            {
+                if (col.gameObject.tag == "Bala" && _estaVivo == true)
+                {
+                    _HPAtual -= 1;
+                    Destroy(col.gameObject);
+                    
+                    if (_HPAtual <= 0)
+                    {
+                        scoreManager.IncreaseScore();
+                        _estaVivo = false;
+                        Destroy(gameObject);
+                    }
                 }
             }
         }

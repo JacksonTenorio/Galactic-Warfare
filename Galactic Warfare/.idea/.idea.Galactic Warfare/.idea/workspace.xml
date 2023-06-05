@@ -9,14 +9,13 @@
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy/1-Caca Estelar.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy/1-Caca Estelar.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy/2-Nave de Ataque.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy/2-Nave de Ataque.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemy/3-Cruzador de Batalha.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemy/3-Cruzador de Batalha.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Cam.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Cam.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DeathZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DeathZone.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyHP.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyHP.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Escudo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Escudo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerHP.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerHP.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TiroRapido.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TiroRapido.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,6 +129,8 @@
       <workItem from="1685449902152" duration="7968000" />
       <workItem from="1685492127927" duration="4208000" />
       <workItem from="1685534529695" duration="8584000" />
+      <workItem from="1685570930443" duration="2529000" />
+      <workItem from="1685960381021" duration="2118000" />
     </task>
     <servers />
   </component>
@@ -169,6 +170,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/EnemyController.cs</url>
+          <line>86</line>
+          <properties documentPath="C:\Users\anton\OneDrive\Documentos\git\Galactic-Warfare\Galactic Warfare\Assets\Scripts\EnemyController.cs" initialLine="86" containingFunctionPresentation="method 'Move'">
+            <startOffsets>
+              <option value="2380" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2381" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

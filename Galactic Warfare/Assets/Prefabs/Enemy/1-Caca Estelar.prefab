@@ -169,4 +169,6 @@ MonoBehaviour:
   _Enemy2: {fileID: 0}
   _Enemy3: {fileID: 0}
   _MaxHP: 2
-  _Enemy01: 1
+  _1: 1
+  _2: 0
+  _3: 0
