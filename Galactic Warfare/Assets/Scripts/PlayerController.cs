@@ -53,21 +53,15 @@ public class PlayerController : MonoBehaviour
     // Chama a função.
     void Tiro1()
     {
-        StartCoroutine("TiroRapido");
+        if (_IsShooting == false && Input.GetKey(KeyCode.Space)) StartCoroutine("TiroRapido");
     }
     
     // Faz o jogador atirar.
     IEnumerator TiroRapido()
     {
-        if (_IsShooting == false)
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                _IsShooting = true;
-                GameObject tiroRapido = Instantiate(_tiroRapido, _firePoint.position, _firePoint.rotation);
-                yield return new WaitForSeconds(0.4f);
-                _IsShooting = false;
-            }
-        }
+        _IsShooting = true;
+        GameObject tiroRapido = Instantiate(_tiroRapido, _firePoint.position, _firePoint.rotation);
+        yield return new WaitForSeconds(0.4f);
+        _IsShooting = false;
     }
 }
