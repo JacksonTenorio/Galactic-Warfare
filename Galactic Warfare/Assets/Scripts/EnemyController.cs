@@ -12,14 +12,15 @@ public class EnemyController : MonoBehaviour
     private GameObject stop;
 
     public float _timer;
+    public float _Speed;
     public int _range;
     private int _numero;
     
     static public bool _Start;
-    public float _Speed;
     public bool _Enemy1;
     public bool _Enemy2;
     public bool _Enemy3;
+    
     void Start()
     {
         InvokeRepeating("Timer", 0f, _timer);
@@ -83,6 +84,10 @@ public class EnemyController : MonoBehaviour
                 {
                     rig.velocity = Vector2.down * _Speed;
                 }
+            }
+            else
+            {
+                rig.velocity = Vector2.left * _Speed;
             }
         }
 
