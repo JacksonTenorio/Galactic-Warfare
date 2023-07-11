@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,11 +11,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerInput _playerInput;
     private GameControls _gameControls;
     private Vector2 _moveInput;
-    private bool _IsShooting;
     private Rigidbody2D rig;
-    public GameObject _tiroRapido;
-    public Transform _firePoint;
     
+    //Tiros
+    private bool _IsShooting;
+    public int tiros;
+    private int _BalasTiro2;
+    private bool _Tiro2;
+    
+    public GameObject _tiroRapido;
+    public GameObject _tiroFguete;
+    public GameObject _tiroLaser;
+    public Transform _firePoint;
+
     private void OnEnable()
     {
         _playerInput.onActionTriggered += OnAction;
@@ -41,27 +50,74 @@ public class PlayerController : MonoBehaviour
     {
         _gameControls = new GameControls();
         rig = GetComponent<Rigidbody2D>();
+        
         _IsShooting = false;
+        _BalasTiro2 = 50;
+        tiros = 1;
     }
     
     //Verifica a cada instante.
     private void Update()
     {
-        Tiro1();
+        TiroFoguete();
+        TirosOn();
+        Contador();
     }
     
     // Chama a função.
-    void Tiro1()
+    void TirosOn()
     {
-        if (_IsShooting == false && Input.GetKey(KeyCode.Space)) StartCoroutine("TiroRapido");
+        if (_IsShooting == false && Input.GetKey(KeyCode.Space)) StartCoroutine("Fire");
     }
     
     // Faz o jogador atirar.
-    IEnumerator TiroRapido()
+    // ReSharper disable Unity.PerformanceAnalysis
+    IEnumerator Fire()
     {
-        _IsShooting = true;
-        GameObject tiroRapido = Instantiate(_tiroRapido, _firePoint.position, _firePoint.rotation);
-        yield return new WaitForSeconds(0.4f);
-        _IsShooting = false;
+        if (tiros == 1)
+        {
+            _IsShooting = true;
+            Instantiate(_tiroRapido, _firePoint.position, _firePoint.rotation);
+            yield return new WaitForSeconds(0.4f);
+            _IsShooting = false;
+        }
+
+        if (tiros == 2)
+        {
+            if (_Tiro2 ==  true)
+            {
+                _IsShooting = true;
+                GameObject tiroRapido = Instantiate(_tiroFguete, _firePoint.position, _firePoint.rotation);
+                _BalasTiro2 -= 1;
+                yield return new WaitForSeconds(0.4f);
+                _IsShooting = false;
+            }
+        }
+    }
+
+    void TiroFoguete()
+    {
+        if (_BalasTiro2 >= 50)
+        {
+            _BalasTiro2 = 50;
+            _Tiro2 = true;
+        }
+        if (_BalasTiro2 <= 0)
+        {
+            _BalasTiro2 = 0;
+            _Tiro2 = false;
+        }
+    }
+
+    void Contador()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            tiros += 1;
+            if (tiros > 2)
+            {
+                tiros = 1;
+            }
+        }
     }
 }

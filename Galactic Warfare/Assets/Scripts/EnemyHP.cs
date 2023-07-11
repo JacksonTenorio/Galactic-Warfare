@@ -10,6 +10,7 @@ public class EnemyHP : MonoBehaviour
     public GameObject _Enemy3;
     
     private ScoreManager scoreManager;
+    private PlayerController _playerController;
 
     public int _MaxHP;
     private int _HPAtual;
@@ -22,6 +23,7 @@ public class EnemyHP : MonoBehaviour
     private void Start()
     {
         scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
+        _playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
         _HPAtual = _MaxHP;
     }
 
@@ -47,8 +49,16 @@ public class EnemyHP : MonoBehaviour
         {
             if (col.gameObject.tag == "Bala" && _estaVivo == true)
             {
-                _HPAtual -= 1;
-                Destroy(col.gameObject);
+                if (_playerController.tiros == 1)
+                {
+                    _HPAtual -= 1;
+                    Destroy(col.gameObject);
+                }
+                if (_playerController.tiros == 2)
+                {
+                    _HPAtual -= 2;
+                    Destroy(col.gameObject);
+                }
 
                 if (_HPAtual <= 0)
                 {
@@ -65,9 +75,17 @@ public class EnemyHP : MonoBehaviour
             {
                 if (col.gameObject.tag == "Bala" && _estaVivo == true)
                 {
-                    _HPAtual -= 1;
-                    Destroy(col.gameObject);
-                    
+                    if (_playerController.tiros == 1)
+                    {
+                        _HPAtual -= 1;
+                        Destroy(col.gameObject);
+                    }
+                    if (_playerController.tiros == 2)
+                    {
+                        _HPAtual -= 2;
+                        Destroy(col.gameObject);
+                    }
+
                     if (_HPAtual <= 0)
                     {
                         scoreManager.IncreaseScore();
@@ -84,9 +102,17 @@ public class EnemyHP : MonoBehaviour
             {
                 if (col.gameObject.tag == "Bala" && _estaVivo == true)
                 {
-                    _HPAtual -= 1;
-                    Destroy(col.gameObject);
-                    
+                    if (_playerController.tiros == 1)
+                    {
+                        _HPAtual -= 1;
+                        Destroy(col.gameObject);
+                    }
+                    if (_playerController.tiros == 2)
+                    {
+                        _HPAtual -= 2;
+                        Destroy(col.gameObject);
+                    }
+
                     if (_HPAtual <= 0)
                     {
                         scoreManager.IncreaseScore();
