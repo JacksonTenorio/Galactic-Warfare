@@ -23,7 +23,7 @@ public class EnemyHP : MonoBehaviour
     private void Start()
     {
         scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
-        _playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
+        _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         _HPAtual = _MaxHP;
     }
 

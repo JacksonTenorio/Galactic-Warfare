@@ -15,6 +15,7 @@ TagManager:
   - Barreira
   - Vidas
   - Slider
+  - Parado
   layers:
   - Default
   - TransparentFX

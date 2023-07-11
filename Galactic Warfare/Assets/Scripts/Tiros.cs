@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Tiros : MonoBehaviour
@@ -12,7 +13,7 @@ public class Tiros : MonoBehaviour
     {
         velocidade = 8;
         rig = GetComponent<Rigidbody2D>();
-        _playerController = GameObject.Find("PlayerController").GetComponent<PlayerController>();
+        _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
     }
     void FixedUpdate()
     {
@@ -26,9 +27,7 @@ public class Tiros : MonoBehaviour
             rig.velocity = Vector2.right * velocidade;
             Destroy(gameObject, 1.3f);
         }
-       
     }
-
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Enemy")

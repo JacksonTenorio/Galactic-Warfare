@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -12,7 +13,8 @@ public class PlayerController : MonoBehaviour
     private GameControls _gameControls;
     private Vector2 _moveInput;
     private Rigidbody2D rig;
-    
+    private float _SpeedPlayer;
+
     //Tiros
     private bool _IsShooting;
     public int tiros;
@@ -41,13 +43,14 @@ public class PlayerController : MonoBehaviour
         {
             //Faz o jogador se movimentar.
             _moveInput = PlayerAct.ReadValue<Vector2>();
-            rig.velocity = _moveInput*4;
+            rig.velocity = _moveInput*_SpeedPlayer;
         }
     }
     
     //Quando inicia o level.
     void Start()
     {
+        _SpeedPlayer = 4;
         _gameControls = new GameControls();
         rig = GetComponent<Rigidbody2D>();
         
@@ -84,10 +87,10 @@ public class PlayerController : MonoBehaviour
 
         if (tiros == 2)
         {
-            if (_Tiro2 ==  true)
+            if (_Tiro2 == true)
             {
                 _IsShooting = true;
-                GameObject tiroRapido = Instantiate(_tiroFguete, _firePoint.position, _firePoint.rotation);
+                Instantiate(_tiroFguete, _firePoint.position, _firePoint.rotation);
                 _BalasTiro2 -= 1;
                 yield return new WaitForSeconds(0.4f);
                 _IsShooting = false;
@@ -102,13 +105,16 @@ public class PlayerController : MonoBehaviour
             _BalasTiro2 = 50;
             _Tiro2 = true;
         }
+        if (_BalasTiro2 > 0 && _BalasTiro2 <= 50)
+        {
+            _Tiro2 = true;
+        }
         if (_BalasTiro2 <= 0)
         {
             _BalasTiro2 = 0;
             _Tiro2 = false;
         }
     }
-
     void Contador()
     {
         if (Input.GetKeyDown(KeyCode.Z))
