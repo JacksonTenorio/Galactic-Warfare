@@ -77,7 +77,7 @@ public class PlayerController : MonoBehaviour
     // ReSharper disable Unity.PerformanceAnalysis
     IEnumerator Fire()
     {
-        if (tiros == 1)
+        if (tiros == 1 && _IsShooting == false)
         {
             _IsShooting = true;
             Instantiate(_tiroRapido, _firePoint.position, _firePoint.rotation);
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
 
         if (tiros == 2)
         {
-            if (_Tiro2 == true)
+            if (_Tiro2 == true && _IsShooting == false)
             {
                 _IsShooting = true;
                 Instantiate(_tiroFguete, _firePoint.position, _firePoint.rotation);
