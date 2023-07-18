@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,7 +26,12 @@ public class PlayerController : MonoBehaviour
     public GameObject _tiroFguete;
     public GameObject _tiroLaser;
     public Transform _firePoint;
-
+    
+    //Seleção de tiro
+    public GameObject _Fundo1;
+    public GameObject _Fundo2;
+    public GameObject _Fundo3;
+    
     private void OnEnable()
     {
         _playerInput.onActionTriggered += OnAction;
@@ -50,13 +56,20 @@ public class PlayerController : MonoBehaviour
     //Quando inicia o level.
     void Start()
     {
+        //movimentos
         _SpeedPlayer = 4;
         _gameControls = new GameControls();
         rig = GetComponent<Rigidbody2D>();
         
+        //trios
         _IsShooting = false;
         _BalasTiro2 = 50;
         tiros = 1;
+        
+        //seleção dos tiros
+        _Fundo1 = GameObject.Find("Fundo1").gameObject;
+        _Fundo2 = GameObject.Find("Fundo2").gameObject;
+        _Fundo3 = GameObject.Find("Fundo3").gameObject;
     }
     
     //Verifica a cada instante.
@@ -65,6 +78,7 @@ public class PlayerController : MonoBehaviour
         TiroFoguete();
         TirosOn();
         Contador();
+        Selecao();
     }
     
     // Chama a função.
@@ -120,10 +134,32 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Z))
         {
             tiros += 1;
-            if (tiros > 2)
+            if (tiros > 3)
             {
                 tiros = 1;
             }
+        }
+    }
+
+    void Selecao()
+    {
+        if (tiros == 1)
+        {
+            _Fundo1.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0.1960784f);
+            _Fundo2.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0);
+            _Fundo3.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0);
+        }
+        if (tiros == 2)
+        {
+            _Fundo1.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0);
+            _Fundo2.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0.1960784f);
+            _Fundo3.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0);
+        }
+        if (tiros == 3)
+        {
+            _Fundo1.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0);
+            _Fundo2.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0);
+            _Fundo3.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0.1960784f);
         }
     }
 }
