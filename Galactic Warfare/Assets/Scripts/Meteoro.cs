@@ -8,14 +8,16 @@ public class Meteoro : MonoBehaviour
 {
     private ScoreManager scoreManager;
     private PlayerController _playerController;
+    private PlayerHP playerHp;
 
     private Rigidbody2D rig;
-    public float speed;
+    private float speed = 3;
     void Start()
     {
+        rig = GetComponent<Rigidbody2D>();
+        playerHp = GameObject.FindWithTag("Player").GetComponent<PlayerHP>();
         _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
-        rig = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -44,11 +46,22 @@ public class Meteoro : MonoBehaviour
                 Destroy(col.gameObject);
                 Destroy(gameObject);
             }
-            if (_playerController.tiros == 3 && _playerController._Tiro3 == true)
+        }
+        if (col.gameObject.tag == "LaserPlayer")
+        {
+            if (_playerController.tiros == 3)
             {
                 scoreManager.IncreaseScore();
                 Destroy(gameObject);
             }
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            playerHp.TakeDamage(20f);
         }
     }
 }

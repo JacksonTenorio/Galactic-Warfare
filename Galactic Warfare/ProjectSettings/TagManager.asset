@@ -16,6 +16,7 @@ TagManager:
   - Vidas
   - Slider
   - Parado
+  - LaserPlayer
   layers:
   - Default
   - TransparentFX

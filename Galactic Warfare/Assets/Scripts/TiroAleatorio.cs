@@ -31,7 +31,7 @@ public class TiroAleatorio : MonoBehaviour
     {
         InvokeRepeating("Timer", 0, 1);
         
-        playerHp = GameObject.Find("PlayerController").GetComponent<PlayerHP>();
+        playerHp = GameObject.FindWithTag("Player").GetComponent<PlayerHP>();
     }
 
     // Update is called once per frame

@@ -48,7 +48,7 @@ public class Cam : MonoBehaviour
         if (_4 == true)
         {
             _4 = false;
-            GameObject meteoro = Instantiate(_Meteoro, _Spawn2.position, transform.rotation);
+            Instantiate(_Meteoro, _Spawn2.position, transform.rotation);
             yield return new WaitForSeconds(5f);
             _4 = true;
         }

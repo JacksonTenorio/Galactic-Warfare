@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerInput: {fileID: 8534907633369817073}
   tiros: 0
+  _Tiro3: 0
   _tiroRapido: {fileID: 3738671562660371141, guid: 163cc0904ca8a42418c4680383660b4c, type: 3}
   _tiroFguete: {fileID: 5067683268092309919, guid: 17e9ad0312ab0e44db94baced1b3ffce, type: 3}
   _tiroLaser: {fileID: 3813291796076079012}
@@ -137,7 +138,7 @@ GameObject:
   - component: {fileID: 7789646069062029656}
   m_Layer: 0
   m_Name: LaserPlayer
-  m_TagString: Bala
+  m_TagString: LaserPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

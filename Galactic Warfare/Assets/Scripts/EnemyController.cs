@@ -32,7 +32,7 @@ public class EnemyController : MonoBehaviour
         stop = GameObject.FindGameObjectWithTag("Stop");
         positonStop = stop.transform;
         
-        playerHp = GameObject.Find("PlayerController").GetComponent<PlayerHP>();
+        playerHp = GameObject.FindWithTag("Player").GetComponent<PlayerHP>();
     }
 
     void Update()
@@ -111,6 +111,7 @@ public class EnemyController : MonoBehaviour
         if (_Enemy1 == true && collision.gameObject.tag == "Player")
         {
             playerHp.TakeDamage(20);
+            playerHp.UpdateHealthBar();
             Destroy(gameObject);
         }
     }

@@ -39,7 +39,17 @@ public class Escudo : MonoBehaviour
                     _escudoHPAtual -= 2;
                     Destroy(col.gameObject);
                 }
-                if (_playerController.tiros == 3 && _playerController._Tiro3 == true)
+
+                if (_escudoHPAtual <= 0)
+                {
+                    _escudoAtivado1 = false;
+                    Destroy(gameObject);
+                }
+            }
+            if (col.gameObject.tag == "LaserPlayer" && _escudoAtivado1 == true)
+            {
+                
+                if (_playerController.tiros == 3)
                 {
                     _escudoHPAtual -= 1;
                 }
@@ -66,14 +76,24 @@ public class Escudo : MonoBehaviour
                     _escudoHPAtual -= 2;
                     Destroy(col.gameObject);
                 }
-                if (_playerController.tiros == 3 && _playerController._Tiro3 == true)
+
+                if (_escudoHPAtual <= 0)
+                {
+                    _escudoAtivado2 = false;
+                    Destroy(gameObject);
+                }
+            }
+            if (col.gameObject.tag == "LaserPlayer" && _escudoAtivado1 == true)
+            {
+                
+                if (_playerController.tiros == 3)
                 {
                     _escudoHPAtual -= 1;
                 }
 
                 if (_escudoHPAtual <= 0)
                 {
-                    _escudoAtivado2 = false;
+                    _escudoAtivado1 = false;
                     Destroy(gameObject);
                 }
             }

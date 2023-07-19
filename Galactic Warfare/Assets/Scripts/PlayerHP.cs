@@ -60,20 +60,4 @@ public class PlayerHP : MonoBehaviour
     {
         _healthBar.value = _currentHealth;
     }
-
-    /*public void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Laser")
-        {
-            TakeDamage(10);
-        }
-    }
-
-    public void OnCollisionEnter2D(Collision2D col)
-    {
-        if (col.gameObject.tag == "Enemy")
-        {
-            TakeDamage(20);
-        }
-    }*/
 }

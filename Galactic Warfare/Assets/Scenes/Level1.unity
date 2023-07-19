@@ -594,10 +594,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 7816069089303949929, guid: b17820ff96359254da7f42c1e6c9d4ef, type: 3}
+  playerController2: {fileID: 0}
   playerHp: {fileID: 0}
   _SpawnPlayer: {fileID: 812742957}
   scoreText: {fileID: 926206313}
   scoreLifeText: {fileID: 2106135380}
+  scoreTiroFoguete: {fileID: 846245025}
+  scoreTiroLaser: {fileID: 1072482601}
 --- !u!1 &139647169
 GameObject:
   m_ObjectHideFlags: 0
@@ -2330,10 +2333,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3666650842243990170, guid: b17820ff96359254da7f42c1e6c9d4ef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4332361011534432450, guid: b17820ff96359254da7f42c1e6c9d4ef, type: 3}
-      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7816069089303949929, guid: b17820ff96359254da7f42c1e6c9d4ef, type: 3}
