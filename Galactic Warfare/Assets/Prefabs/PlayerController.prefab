@@ -52,7 +52,7 @@ MonoBehaviour:
   tiros: 0
   _tiroRapido: {fileID: 3738671562660371141, guid: 163cc0904ca8a42418c4680383660b4c, type: 3}
   _tiroFguete: {fileID: 5067683268092309919, guid: 17e9ad0312ab0e44db94baced1b3ffce, type: 3}
-  _tiroLaser: {fileID: 0}
+  _tiroLaser: {fileID: 3813291796076079012}
   _firePoint: {fileID: 2899884695340860277}
   _Fundo1: {fileID: 0}
   _Fundo2: {fileID: 0}
@@ -134,9 +134,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8975179171157899190}
   - component: {fileID: 4332361011534432450}
+  - component: {fileID: 7789646069062029656}
   m_Layer: 0
   m_Name: LaserPlayer
-  m_TagString: Untagged
+  m_TagString: Bala
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,6 +209,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!70 &7789646069062029656
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3813291796076079012}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 6.374114e-10, y: 0.00036228515}
+  m_Size: {x: 1.0000001, y: 1.9920303}
+  m_Direction: 0
 --- !u!1 &8518594291998921557
 GameObject:
   m_ObjectHideFlags: 0

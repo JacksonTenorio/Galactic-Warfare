@@ -7,11 +7,13 @@ using UnityEngine.SceneManagement;
 public class Meteoro : MonoBehaviour
 {
     private ScoreManager scoreManager;
+    private PlayerController _playerController;
 
     private Rigidbody2D rig;
     public float speed;
     void Start()
     {
+        _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
         rig = GetComponent<Rigidbody2D>();
     }
@@ -36,9 +38,17 @@ public class Meteoro : MonoBehaviour
     {
         if (col.gameObject.tag == "Bala")
         {
-            scoreManager.IncreaseScore();
-            Destroy(col.gameObject);
-            Destroy(gameObject);
+            if (_playerController.tiros == 1 || _playerController.tiros == 2)
+            {
+                scoreManager.IncreaseScore();
+                Destroy(col.gameObject);
+                Destroy(gameObject);
+            }
+            if (_playerController.tiros == 3 && _playerController._Tiro3 == true)
+            {
+                scoreManager.IncreaseScore();
+                Destroy(gameObject);
+            }
         }
     }
 }

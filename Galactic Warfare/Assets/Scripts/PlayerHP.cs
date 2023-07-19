@@ -61,7 +61,7 @@ public class PlayerHP : MonoBehaviour
         _healthBar.value = _currentHealth;
     }
 
-    public void OnTriggerEnter2D(Collider2D col)
+    /*public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Laser")
         {
@@ -75,5 +75,5 @@ public class PlayerHP : MonoBehaviour
         {
             TakeDamage(20);
         }
-    }
+    }*/
 }

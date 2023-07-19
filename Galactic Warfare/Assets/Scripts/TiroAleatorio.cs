@@ -7,6 +7,8 @@ using Random = UnityEngine.Random;
 
 public class TiroAleatorio : MonoBehaviour
 {
+    private PlayerHP playerHp;
+    
     public Transform _FirePoint;
     public Transform _FirePoint2;
     public Transform _FirePoint3;
@@ -28,6 +30,8 @@ public class TiroAleatorio : MonoBehaviour
     private void Start()
     {
         InvokeRepeating("Timer", 0, 1);
+        
+        playerHp = GameObject.Find("PlayerController").GetComponent<PlayerHP>();
     }
 
     // Update is called once per frame
@@ -87,6 +91,11 @@ public class TiroAleatorio : MonoBehaviour
         if (col.gameObject.tag == "Barreira")
         {
             Destroy(gameObject);
+        }
+
+        if (col.gameObject.tag == "Player")
+        {
+            playerHp.TakeDamage(10);
         }
     }
 

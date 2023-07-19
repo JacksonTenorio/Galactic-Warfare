@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    private PlayerHP playerHp;
+    
     private Rigidbody2D rig;
     private Transform positionPlayer;
     private GameObject player;
@@ -29,6 +31,8 @@ public class EnemyController : MonoBehaviour
         positionPlayer = player.transform;
         stop = GameObject.FindGameObjectWithTag("Stop");
         positonStop = stop.transform;
+        
+        playerHp = GameObject.Find("PlayerController").GetComponent<PlayerHP>();
     }
 
     void Update()
@@ -106,6 +110,7 @@ public class EnemyController : MonoBehaviour
 
         if (_Enemy1 == true && collision.gameObject.tag == "Player")
         {
+            playerHp.TakeDamage(20);
             Destroy(gameObject);
         }
     }

@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Escudo : MonoBehaviour
 {
+    private PlayerController _playerController;
+    
     private int _escudoHPMax = 2;
     private int _escudoHPAtual;
     
@@ -15,6 +17,7 @@ public class Escudo : MonoBehaviour
     
     private void Start()
     {
+        _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         _escudoHPAtual = _escudoHPMax;
         _escudoAtivado1 = true;
         _escudoAtivado2 = true;
@@ -26,9 +29,21 @@ public class Escudo : MonoBehaviour
         {
             if (col.gameObject.tag == "Bala" && _escudoAtivado1 == true)
             {
-                _escudoHPAtual -= 1;
-                Destroy(col.gameObject);
-            
+                if (_playerController.tiros == 1)
+                {
+                    _escudoHPAtual -= 1;
+                    Destroy(col.gameObject);
+                }
+                if (_playerController.tiros == 2)
+                {
+                    _escudoHPAtual -= 2;
+                    Destroy(col.gameObject);
+                }
+                if (_playerController.tiros == 3 && _playerController._Tiro3 == true)
+                {
+                    _escudoHPAtual -= 1;
+                }
+
                 if (_escudoHPAtual <= 0)
                 {
                     _escudoAtivado1 = false;
@@ -41,9 +56,21 @@ public class Escudo : MonoBehaviour
         {
             if (col.gameObject.tag == "Bala" && _escudoAtivado2 == true)
             {
-                _escudoHPAtual -= 1;
-                Destroy(col.gameObject);
-            
+                if (_playerController.tiros == 1)
+                {
+                    _escudoHPAtual -= 1;
+                    Destroy(col.gameObject);
+                }
+                if (_playerController.tiros == 2)
+                {
+                    _escudoHPAtual -= 2;
+                    Destroy(col.gameObject);
+                }
+                if (_playerController.tiros == 3 && _playerController._Tiro3 == true)
+                {
+                    _escudoHPAtual -= 1;
+                }
+
                 if (_escudoHPAtual <= 0)
                 {
                     _escudoAtivado2 = false;

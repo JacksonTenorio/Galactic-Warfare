@@ -59,6 +59,10 @@ public class EnemyHP : MonoBehaviour
                     _HPAtual -= 2;
                     Destroy(col.gameObject);
                 }
+                if (_playerController.tiros == 3 && _playerController._Tiro3 == true)
+                {
+                    _HPAtual -= 1;
+                }
 
                 if (_HPAtual <= 0)
                 {
@@ -84,6 +88,10 @@ public class EnemyHP : MonoBehaviour
                     {
                         _HPAtual -= 2;
                         Destroy(col.gameObject);
+                    }
+                    if (_playerController.tiros == 3 && _playerController._Tiro3 == true)
+                    {
+                        _HPAtual -= 1;
                     }
 
                     if (_HPAtual <= 0)
@@ -111,6 +119,10 @@ public class EnemyHP : MonoBehaviour
                     {
                         _HPAtual -= 2;
                         Destroy(col.gameObject);
+                    }
+                    if (_playerController.tiros == 3 && _playerController._Tiro3 == true)
+                    {
+                        _HPAtual -= 1;
                     }
 
                     if (_HPAtual <= 0)

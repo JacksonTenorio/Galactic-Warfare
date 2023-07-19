@@ -20,7 +20,9 @@ public class PlayerController : MonoBehaviour
     private bool _IsShooting;
     public int tiros;
     private int _BalasTiro2;
+    private float _Porcentagemlaser;
     private bool _Tiro2;
+    public bool _Tiro3;
     
     public GameObject _tiroRapido;
     public GameObject _tiroFguete;
@@ -63,13 +65,16 @@ public class PlayerController : MonoBehaviour
         
         //trios
         _IsShooting = false;
+        _Tiro3 = false;
         _BalasTiro2 = 50;
         tiros = 1;
-        
+        _Porcentagemlaser = 0;
+
         //seleção dos tiros
         _Fundo1 = GameObject.Find("Fundo1").gameObject;
         _Fundo2 = GameObject.Find("Fundo2").gameObject;
         _Fundo3 = GameObject.Find("Fundo3").gameObject;
+        _tiroLaser = GameObject.Find("LaserPlayer").gameObject;
     }
     
     //Verifica a cada instante.
@@ -79,6 +84,7 @@ public class PlayerController : MonoBehaviour
         TirosOn();
         Contador();
         Selecao();
+        LaserPlayer();
     }
     
     // Chama a função.
@@ -137,6 +143,48 @@ public class PlayerController : MonoBehaviour
             if (tiros > 3)
             {
                 tiros = 1;
+            }
+        }
+    }
+
+    void LaserPlayer()
+    {
+        if (_Tiro3 == false)
+        {
+            if (_Porcentagemlaser <= 0)
+            {
+                _Porcentagemlaser = 0;
+                _Porcentagemlaser += Time.deltaTime;
+            }
+            if (_Porcentagemlaser >= 100)
+            {
+                _Porcentagemlaser = 100;
+            }
+        }
+        if (_Tiro3 == true)
+        {
+            if (_Porcentagemlaser <= 100)
+            {
+                _Porcentagemlaser -= Time.deltaTime;
+            }
+            if (_Porcentagemlaser <= 0)
+            {
+                _Porcentagemlaser = 0;
+            }
+        }
+        if (tiros == 3)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _IsShooting = true;
+                _Tiro3 = true;
+                _tiroLaser.GetComponent<SpriteRenderer>().color = new Color(1, 0.130547f, 0 , 1);
+            }
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                _IsShooting = false;
+                _Tiro3 = false;
+                _tiroLaser.GetComponent<SpriteRenderer>().color = new Color(1, 0.130547f, 0 , 0);
             }
         }
     }
