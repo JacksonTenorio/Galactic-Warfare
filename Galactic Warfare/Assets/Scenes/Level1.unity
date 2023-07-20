@@ -594,8 +594,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerController: {fileID: 7816069089303949929, guid: b17820ff96359254da7f42c1e6c9d4ef, type: 3}
-  playerController2: {fileID: 0}
-  playerHp: {fileID: 0}
+  playerController2: {fileID: 1356663691}
+  playerHp: {fileID: 1356663688}
   _SpawnPlayer: {fileID: 812742957}
   scoreText: {fileID: 926206313}
   scoreLifeText: {fileID: 2106135380}
@@ -1522,7 +1522,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 108.302, w: -5.8697815}
+  m_margin: {x: 0, y: 0, z: -0.5213318, w: -0.62597656}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2104,8 +2104,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 344, y: 124}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 347.4, y: 124}
+  m_SizeDelta: {x: 178.7, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1072482601
 MonoBehaviour:
@@ -2149,13 +2149,13 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 97690656
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2190,7 +2190,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 80.37552, w: -5.8697815}
+  m_margin: {x: 0, y: 0, z: -0.009399414, w: -0.04333496}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2335,6 +2335,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4403751923853388029, guid: b17820ff96359254da7f42c1e6c9d4ef, type: 3}
+      propertyPath: _healthBar
+      value: 
+      objectReference: {fileID: 722625477}
     - target: {fileID: 7816069089303949929, guid: b17820ff96359254da7f42c1e6c9d4ef, type: 3}
       propertyPath: _Fundo1
       value: 
@@ -2989,6 +2993,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1356663688 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4403751923853388029, guid: b17820ff96359254da7f42c1e6c9d4ef, type: 3}
+  m_PrefabInstance: {fileID: 1096730516}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0d89fd51c62466439b7331163f404ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1356663691 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7816069089303949929, guid: b17820ff96359254da7f42c1e6c9d4ef, type: 3}
+  m_PrefabInstance: {fileID: 1096730516}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9512413facff3684283d92372fdd41ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1362007602
 GameObject:
   m_ObjectHideFlags: 0

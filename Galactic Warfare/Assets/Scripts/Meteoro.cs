@@ -36,6 +36,18 @@ public class Meteoro : MonoBehaviour
         rig.velocity = Vector2.left * speed;
     }
 
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "LaserPlayer")
+        {
+            if (_playerController.tiros == 3)
+            {
+                scoreManager.IncreaseScore();
+                Destroy(gameObject);
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Bala")
@@ -44,14 +56,6 @@ public class Meteoro : MonoBehaviour
             {
                 scoreManager.IncreaseScore();
                 Destroy(col.gameObject);
-                Destroy(gameObject);
-            }
-        }
-        if (col.gameObject.tag == "LaserPlayer")
-        {
-            if (_playerController.tiros == 3)
-            {
-                scoreManager.IncreaseScore();
                 Destroy(gameObject);
             }
         }

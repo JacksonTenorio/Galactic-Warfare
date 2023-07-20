@@ -31,7 +31,6 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         playerHp = GameObject.Find("PlayerController").GetComponent<PlayerHP>();
-        playerController2 = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
 
         score = 0;
         scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
@@ -41,26 +40,29 @@ public class ScoreManager : MonoBehaviour
         scoreLifeText.text = "X5";
 
         scoreTiroFoguete = GameObject.Find("Bala2").GetComponent<TextMeshProUGUI>();
-        scoreTiroFoguete = GameObject.Find("Bala3").GetComponent<TextMeshProUGUI>();
+        scoreTiroLaser = GameObject.Find("Bala3").GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()
     {
         _Player = GameObject.FindGameObjectWithTag("Player");
         _Player = playerController.GameObject();
+        
+        playerController2 = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        
         Tiros();
     }
 
     public void IncreaseScore()
     {
         score += 100;
-        scoreText.text = "Score: " + score.ToString();
+        scoreText.text = "Score: " + score;
     }
     
     public void Life()
     {
         scoreLife -= 1;
-        scoreLifeText.text = "X" + scoreLife.ToString();
+        scoreLifeText.text = "X" + scoreLife;
         
         Destroy(GameObject.FindGameObjectWithTag("Player"));
         
@@ -74,9 +76,9 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    void Tiros()
+    public void Tiros()
     {
         scoreTiroFoguete.text = playerController2._BalasTiro2.ToString();
-        scoreTiroLaser.text = playerController2._Porcentagemlaser.ToString();
+        scoreTiroLaser.text = Mathf.RoundToInt(playerController2._Porcentagemlaser) + "%";
     }
 }

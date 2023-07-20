@@ -49,7 +49,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerInput: {fileID: 8534907633369817073}
+  _IsShooting: 0
   tiros: 0
+  _BalasTiro2: 0
+  _Porcentagemlaser: 0
+  _Tiro2: 0
   _Tiro3: 0
   _tiroRapido: {fileID: 3738671562660371141, guid: 163cc0904ca8a42418c4680383660b4c, type: 3}
   _tiroFguete: {fileID: 5067683268092309919, guid: 17e9ad0312ab0e44db94baced1b3ffce, type: 3}

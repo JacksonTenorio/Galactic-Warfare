@@ -17,11 +17,11 @@ public class PlayerController : MonoBehaviour
     private float _SpeedPlayer;
 
     //Tiros
-    private bool _IsShooting;
+    public bool _IsShooting;
     public int tiros;
-    public int _BalasTiro2;
+    public float _BalasTiro2;
     public float _Porcentagemlaser;
-    private bool _Tiro2;
+    public bool _Tiro2;
     public bool _Tiro3;
     
     public GameObject _tiroRapido;
@@ -91,7 +91,10 @@ public class PlayerController : MonoBehaviour
     // Chama a função.
     void TirosOn()
     {
-        if (_IsShooting == false && Input.GetKey(KeyCode.Space)) StartCoroutine("Fire");
+        if (_IsShooting == false && Input.GetKey(KeyCode.Space))
+        {
+            StartCoroutine("Fire");
+        }
     }
     
     // Faz o jogador atirar.
@@ -112,7 +115,7 @@ public class PlayerController : MonoBehaviour
             {
                 _IsShooting = true;
                 Instantiate(_tiroFguete, _firePoint.position, _firePoint.rotation);
-                _BalasTiro2 -= 1;
+                _BalasTiro2 -= 1.0f;
                 yield return new WaitForSeconds(0.4f);
                 _IsShooting = false;
             }
@@ -158,7 +161,7 @@ public class PlayerController : MonoBehaviour
                 
                 if(_IsShooting)
                 {
-                    _Porcentagemlaser -= Time.deltaTime;
+                    _Porcentagemlaser -= (Time.deltaTime + 0.05f);
                 }
                 if (_Porcentagemlaser <= 0)
                 {
@@ -169,9 +172,20 @@ public class PlayerController : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.Space) && _Tiro3)
             {
-                _IsShooting = true;
-                _tiroLaser.GetComponent<SpriteRenderer>().color = new Color(1, 0.130547f, 0 , 1);
-                _tiroLaser.GetComponent<CapsuleCollider2D>().enabled = true;
+                if (_Porcentagemlaser > 0)
+                {
+                    _IsShooting = true;
+                    _tiroLaser.GetComponent<SpriteRenderer>().color = new Color(1, 0.130547f, 0 , 1);
+                    _tiroLaser.GetComponent<CapsuleCollider2D>().enabled = true;
+                }
+                if (_Porcentagemlaser <= 0)
+                {
+                    _Porcentagemlaser = 0;
+                    _IsShooting = false;
+                    _Tiro3 = false;
+                    _tiroLaser.GetComponent<SpriteRenderer>().color = new Color(1, 0.130547f, 0 , 0);
+                    _tiroLaser.GetComponent<CapsuleCollider2D>().enabled = false;
+                }
             }
             if (Input.GetKeyUp(KeyCode.Space))
             {
@@ -179,6 +193,11 @@ public class PlayerController : MonoBehaviour
                 _tiroLaser.GetComponent<SpriteRenderer>().color = new Color(1, 0.130547f, 0 , 0);
                 _tiroLaser.GetComponent<CapsuleCollider2D>().enabled = false;
             }
+        }
+        else
+        {
+            _tiroLaser.GetComponent<SpriteRenderer>().color = new Color(1, 0.130547f, 0 , 0);
+            _tiroLaser.GetComponent<CapsuleCollider2D>().enabled = false;
         }
     }
 

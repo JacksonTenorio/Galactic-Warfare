@@ -17,12 +17,54 @@ public class Escudo : MonoBehaviour
     
     private void Start()
     {
+        gameObject.GetComponent<CircleCollider2D>().enabled = true;
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+        
         _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         _escudoHPAtual = _escudoHPMax;
         _escudoAtivado1 = true;
         _escudoAtivado2 = true;
     }
-    
+
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        if (_Escudo1 == true)
+        {
+            if (col.gameObject.tag == "LaserPlayer" && _escudoAtivado1 == true)
+            {
+                if (_playerController.tiros == 3)
+                {
+                    _escudoHPAtual -= 1;
+                }
+                if (_escudoHPAtual <= 0)
+                {
+                    gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                    gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+                    _escudoAtivado1 = false;
+                }
+            }
+        }
+        
+        if (_Escudo2 == true)
+        {
+            if (col.gameObject.tag == "LaserPlayer" && _escudoAtivado1 == true)
+            {
+                
+                if (_playerController.tiros == 3)
+                {
+                    _escudoHPAtual -= 1;
+                }
+
+                if (_escudoHPAtual <= 0)
+                {
+                    gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                    gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+                    _escudoAtivado2 = false;
+                }
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (_Escudo1 == true)
@@ -42,22 +84,9 @@ public class Escudo : MonoBehaviour
 
                 if (_escudoHPAtual <= 0)
                 {
+                    gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                    gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
                     _escudoAtivado1 = false;
-                    Destroy(gameObject);
-                }
-            }
-            if (col.gameObject.tag == "LaserPlayer" && _escudoAtivado1 == true)
-            {
-                
-                if (_playerController.tiros == 3)
-                {
-                    _escudoHPAtual -= 1;
-                }
-
-                if (_escudoHPAtual <= 0)
-                {
-                    _escudoAtivado1 = false;
-                    Destroy(gameObject);
                 }
             }
         }
@@ -79,22 +108,9 @@ public class Escudo : MonoBehaviour
 
                 if (_escudoHPAtual <= 0)
                 {
+                    gameObject.GetComponent<CircleCollider2D>().enabled = false;
+                    gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
                     _escudoAtivado2 = false;
-                    Destroy(gameObject);
-                }
-            }
-            if (col.gameObject.tag == "LaserPlayer" && _escudoAtivado1 == true)
-            {
-                
-                if (_playerController.tiros == 3)
-                {
-                    _escudoHPAtual -= 1;
-                }
-
-                if (_escudoHPAtual <= 0)
-                {
-                    _escudoAtivado1 = false;
-                    Destroy(gameObject);
                 }
             }
         }

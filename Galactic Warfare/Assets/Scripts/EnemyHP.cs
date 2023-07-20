@@ -43,6 +43,69 @@ public class EnemyHP : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        if (_1 == true)
+        {
+            if (col.gameObject.tag == "LaserPlayer" && _estaVivo == true)
+            {
+                if (_playerController.tiros == 3)
+                {
+                    _HPAtual -= 1;
+                }
+
+                if (_HPAtual <= 0)
+                {
+                    scoreManager.IncreaseScore();
+                    _estaVivo = false;
+                    Destroy(gameObject);
+                }
+            }
+        }
+
+        if (_2 == true)
+        {
+            if (Escudo._escudoAtivado1 == false)
+            {
+                if (col.gameObject.tag == "LaserPlayer" && _estaVivo == true)
+                {
+                    if (_playerController.tiros == 3)
+                    {
+                        _HPAtual -= 1;
+                    }
+
+                    if (_HPAtual <= 0)
+                    {
+                        scoreManager.IncreaseScore();
+                        _estaVivo = false;
+                        Destroy(gameObject);
+                    }
+                }
+            }
+        }
+        
+        if (_3 == true)
+        {
+            if (Escudo._escudoAtivado2 == false)
+            {
+                if (col.gameObject.tag == "LaserPlayer" && _estaVivo == true)
+                {
+                    if (_playerController.tiros == 3)
+                    {
+                        _HPAtual -= 1;
+                    }
+
+                    if (_HPAtual <= 0)
+                    {
+                        scoreManager.IncreaseScore();
+                        _estaVivo = false;
+                        Destroy(gameObject);
+                    }
+                }
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (_1 == true)
@@ -59,25 +122,6 @@ public class EnemyHP : MonoBehaviour
                     _HPAtual -= 2;
                     Destroy(col.gameObject);
                 }
-                if (_playerController.tiros == 3 && _playerController._Tiro3 == true)
-                {
-                    _HPAtual -= 1;
-                }
-
-                if (_HPAtual <= 0)
-                {
-                    scoreManager.IncreaseScore();
-                    _estaVivo = false;
-                    Destroy(gameObject);
-                }
-            }
-            if (col.gameObject.tag == "LaserPlayer" && _estaVivo == true)
-            {
-                if (_playerController.tiros == 3)
-                {
-                    _HPAtual -= 1;
-                }
-
                 if (_HPAtual <= 0)
                 {
                     scoreManager.IncreaseScore();
@@ -111,20 +155,6 @@ public class EnemyHP : MonoBehaviour
                         Destroy(gameObject);
                     }
                 }
-                if (col.gameObject.tag == "LaserPlayer" && _estaVivo == true)
-                {
-                    if (_playerController.tiros == 3)
-                    {
-                        _HPAtual -= 1;
-                    }
-
-                    if (_HPAtual <= 0)
-                    {
-                        scoreManager.IncreaseScore();
-                        _estaVivo = false;
-                        Destroy(gameObject);
-                    }
-                }
             }
         }
         
@@ -143,20 +173,6 @@ public class EnemyHP : MonoBehaviour
                     {
                         _HPAtual -= 2;
                         Destroy(col.gameObject);
-                    }
-
-                    if (_HPAtual <= 0)
-                    {
-                        scoreManager.IncreaseScore();
-                        _estaVivo = false;
-                        Destroy(gameObject);
-                    }
-                }
-                if (col.gameObject.tag == "LaserPlayer" && _estaVivo == true)
-                {
-                    if (_playerController.tiros == 3)
-                    {
-                        _HPAtual -= 1;
                     }
 
                     if (_HPAtual <= 0)

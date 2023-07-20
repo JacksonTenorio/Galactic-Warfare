@@ -108,11 +108,14 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (_Enemy1 == true && collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             playerHp.TakeDamage(20);
             playerHp.UpdateHealthBar();
-            Destroy(gameObject);
+            if (_Enemy1)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
