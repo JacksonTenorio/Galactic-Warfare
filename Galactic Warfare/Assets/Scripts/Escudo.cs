@@ -8,7 +8,7 @@ public class Escudo : MonoBehaviour
     private PlayerController _playerController;
     
     private int _escudoHPMax = 2;
-    private int _escudoHPAtual;
+    private static int _escudoHPAtual;
     
     public static bool _escudoAtivado1;
     public static bool _escudoAtivado2;
@@ -16,6 +16,11 @@ public class Escudo : MonoBehaviour
     public bool _Escudo2;
     
     private void Start()
+    {
+        EscudoEnemyIniciar();
+    }
+
+    public void EscudoEnemyIniciar()
     {
         gameObject.GetComponent<CircleCollider2D>().enabled = true;
         gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
@@ -44,7 +49,6 @@ public class Escudo : MonoBehaviour
                 }
             }
         }
-        
         if (_Escudo2 == true)
         {
             if (col.gameObject.tag == "LaserPlayer" && _escudoAtivado1 == true)
@@ -90,7 +94,6 @@ public class Escudo : MonoBehaviour
                 }
             }
         }
-        
         if (_Escudo2 == true)
         {
             if (col.gameObject.tag == "Bala" && _escudoAtivado2 == true)

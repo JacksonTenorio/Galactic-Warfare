@@ -61,11 +61,11 @@ public class Meteoro : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D col)
+    /*void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.tag == "Player")
         {
             playerHp.TakeDamage(20f);
         }
-    }
+    }*/
 }

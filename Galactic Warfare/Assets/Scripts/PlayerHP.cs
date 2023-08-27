@@ -60,4 +60,25 @@ public class PlayerHP : MonoBehaviour
     {
         _healthBar.value = _currentHealth;
     }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Enemy" && EscudoPlayer._EscudoAtivado == false)
+        {
+            TakeDamage(10);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Enemy" && EscudoPlayer._EscudoAtivado == false)
+        {
+            TakeDamage(10);
+        }
+        if (col.gameObject.tag == "Laser" && EscudoPlayer._EscudoAtivado == false)
+        {
+            TakeDamage(10);
+            Destroy(col.gameObject);
+        }
+    }
 }

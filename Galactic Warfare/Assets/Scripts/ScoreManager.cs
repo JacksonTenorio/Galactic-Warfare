@@ -10,6 +10,7 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
+    private Pause _pause;
     public PlayerController playerController;
     public PlayerController playerController2;
     public PlayerHP playerHp;
@@ -30,6 +31,8 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _pause = GameObject.Find("MenuManager").GetComponent<Pause>();
+        
         playerHp = GameObject.Find("PlayerController").GetComponent<PlayerHP>();
 
         score = 0;
@@ -66,13 +69,15 @@ public class ScoreManager : MonoBehaviour
         
         Destroy(GameObject.FindGameObjectWithTag("Player"));
         
-        GameObject player = Instantiate(_Player, _SpawnPlayer.position, _Player.transform.rotation);
         playerHp._recoveryAmount = 100;
         playerHp._healthBar.value = playerHp._recoveryAmount;
+        GameObject player = Instantiate(_Player, _SpawnPlayer.position, _Player.transform.rotation);
+
         
         if (scoreLife <= 0)
         {
-            SceneManager.LoadScene("Level1");
+            //SceneManager.LoadScene("Level1");
+            _pause.GameOver();
         }
     }
 

@@ -352,8 +352,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timer: 1
-  _range: 4
   _Speed: 3
+  _range: 4
   _Enemy1: 0
   _Enemy2: 1
   _Enemy3: 0
@@ -393,6 +393,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9523d64e50e50364a9745846e143c04c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Raio: {fileID: 473144193951170343, guid: bffdb64d38b0b8b4cb63f4012d6d0865, type: 3}
+  _Municao: {fileID: 2731460648219096914, guid: 9bf75b7a99c88b648974550d728d28bb, type: 3}
+  _Escudo: {fileID: 3558403420360818624, guid: d3f4a70b8d413b243993bfb061cc863e, type: 3}
   _Enemy1: {fileID: 0}
   _Enemy2: {fileID: 5148217691484486200}
   _Enemy3: {fileID: 0}

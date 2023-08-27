@@ -17,6 +17,10 @@ TagManager:
   - Slider
   - Parado
   - LaserPlayer
+  - PowerUp
+  - Raio
+  - Escudo.
+  - Municao
   layers:
   - Default
   - TransparentFX

@@ -110,8 +110,6 @@ public class EnemyController : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
-            playerHp.TakeDamage(20);
-            playerHp.UpdateHealthBar();
             if (_Enemy1)
             {
                 Destroy(gameObject);
@@ -130,11 +128,6 @@ public class EnemyController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "DeathZone")
-        {
-            Destroy(gameObject);
-        }
-        
-        if (_Enemy1 == true && col.gameObject.tag == "Player")
         {
             Destroy(gameObject);
         }

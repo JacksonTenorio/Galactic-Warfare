@@ -85,19 +85,6 @@ public class TiroAleatorio : MonoBehaviour
             }
         }
     }
-    
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Barreira")
-        {
-            Destroy(gameObject);
-        }
-
-        if (col.gameObject.tag == "Player")
-        {
-            playerHp.TakeDamage(10);
-        }
-    }
 
     // Sorteador
     private void Timer()

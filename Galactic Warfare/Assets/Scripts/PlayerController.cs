@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    //Scripts
+    
     //Variavez.
     [SerializeField] private PlayerInput _playerInput;
     private GameControls _gameControls;
@@ -66,9 +68,9 @@ public class PlayerController : MonoBehaviour
         //trios
         _IsShooting = false;
         _Tiro3 = false;
-        _BalasTiro2 = 50;
+        _BalasTiro2 = 0;
         tiros = 1;
-        _Porcentagemlaser = 100;
+        _Porcentagemlaser = 0;
 
         //seleção dos tiros
         _Fundo1 = GameObject.Find("Fundo1").gameObject;
@@ -161,7 +163,7 @@ public class PlayerController : MonoBehaviour
                 
                 if(_IsShooting)
                 {
-                    _Porcentagemlaser -= (Time.deltaTime + 0.05f);
+                    _Porcentagemlaser -= (Time.deltaTime + 0.1f);
                 }
                 if (_Porcentagemlaser <= 0)
                 {
@@ -220,6 +222,20 @@ public class PlayerController : MonoBehaviour
             _Fundo1.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0);
             _Fundo2.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0);
             _Fundo3.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0.1960784f);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Raio")
+        {
+            _Porcentagemlaser = 100;
+            Destroy(col.gameObject);
+        }
+        if (col.gameObject.tag == "Municao")
+        {
+            _BalasTiro2 = 50;
+            Destroy(col.gameObject);
         }
     }
 }
