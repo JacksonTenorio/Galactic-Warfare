@@ -1070,8 +1070,8 @@ MonoBehaviour:
   _Laser: {fileID: 3350152209249023942, guid: da6fba7ebd01f194bab227f764dde34e, type: 3}
   _Missel: {fileID: 403538238757900139, guid: 47c8e21fb15be8743afaaa5c15860e90, type: 3}
   _LaserQueSegue: {fileID: 1166902531852682260}
-  _Speed: 0
+  _Speed: 0.6
   _Escudo: {fileID: 8733064781226740577}
-  _EscudoVidaMax: 0
-  _BarraDeVida: {fileID: 0}
-  _VidaMax: 0
+  _EscudoVidaMax: 50
+  _BarraDeVida: {fileID: 7559033969718026912}
+  _VidaMax: 100
