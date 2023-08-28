@@ -1,11 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public class NaveMae : MonoBehaviour
 {
+    private Pause _Vitoria;
+    private PlayerHP _playerHp;
+    
     // ===== Tiros =====
     public Transform _FirePosition;
     public Transform _FirePosition2;
@@ -34,9 +39,11 @@ public class NaveMae : MonoBehaviour
 
     // ===== Escudo =====
     public GameObject _Escudo;
-
+    
     public float _EscudoVidaMax;
-    private float _EscudoVidaMin;
+    private float _EscudoVidaAtual;
+
+    private bool _EscudoAtivado;
     
     // ===== Vida =====
     public Slider _BarraDeVida;
@@ -48,6 +55,8 @@ public class NaveMae : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _Vitoria = GameObject.Find("MenuManager").GetComponent<Pause>();
+
         _Rig = GetComponent<Rigidbody2D>();
 
         Nvl1 = true;
@@ -59,18 +68,25 @@ public class NaveMae : MonoBehaviour
 
         _VidaAtual = _VidaMax;
         VidaUpdate();
+
+        _EscudoVidaAtual = _EscudoVidaMax;
+        _EscudoAtivado = true;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        _playerHp = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHP>();
+        
+        // ===== Nave Mãe =====
+        Move();
+        
         _Player = GameObject.FindGameObjectWithTag("Player");
         _PlayerPosition = _Player.transform.position;
-
+        
+        // ===== Tiros =====
         _MisselPosition = _Missel.transform.position;
         
-        Move();
-
         if (Nvl1)
         {
             Laser();
@@ -87,6 +103,16 @@ public class NaveMae : MonoBehaviour
         if (!Nvl3)
         {
             _LaserQueSegue.SetActive(false);
+        }
+        
+        // ===== Escudo =====
+        if (_EscudoAtivado)
+        {
+            _Escudo.SetActive(true);
+        }
+        if (!_EscudoAtivado)
+        {
+            _Escudo.SetActive(false);
         }
         
     }
@@ -125,19 +151,9 @@ public class NaveMae : MonoBehaviour
             Instantiate(_Missel, _FirePosition2.position, _Missel.transform.rotation);
             Instantiate(_Missel, _FirePosition3.position, _Missel.transform.rotation);
             
-            if (_MisselPosition.x >= _PlayerPosition.x)
-            {
-                _MisselPosition = Vector2.MoveTowards(_MisselPosition, _PlayerPosition, _SpeedFire * Time.deltaTime);
-            }
-            else
-            {
-                _Missel.GetComponent<Rigidbody2D>().velocity = Vector2.left * _SpeedFire;
-            }
-
             _Timer2 = 2;
         }
     }
-
     public void LaserQueSegue()
     {
         vec2 = (_LaserQueSegue.transform.position - _PlayerPosition).normalized;
@@ -169,13 +185,51 @@ public class NaveMae : MonoBehaviour
         }
         if (_VidaAtual <= 0)
         {
+            _Vitoria.Vitoria();
             Destroy(gameObject);
         }
     }
 
-    public void DanoEnemy(float _Dano = -10)
+    public void DanoEnemy(float _Dano = 1)
     {
-        _VidaAtual -= _Dano;
-        VidaUpdate();
+        if (_EscudoAtivado)
+        {
+            _EscudoVidaAtual -= _Dano;
+
+            if (_EscudoVidaAtual <= 0)
+            {
+                _EscudoAtivado = false;
+            }
+        }
+
+        if (!_EscudoAtivado)
+        {
+            _VidaAtual -= _Dano;
+            VidaUpdate();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Bala")
+        {
+            DanoEnemy(2);
+        }
+        if (col.gameObject.tag == "Bala" && PlayerController.tirosNM == 2)
+        {
+            DanoEnemy(4);
+        }
+        if (PlayerController.tirosNM == 3)
+        {
+            _playerHp.RecoverHealth();
+        }
+    }
+    
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "LaserPlayer")
+        {
+            DanoEnemy(0.5f);
+        }
     }
 }

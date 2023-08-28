@@ -76,7 +76,7 @@ public class EscudoPlayer : MonoBehaviour
         }
     }
     
-    private void OnCollisionStay2D(Collision2D col)
+    /*private void OnCollisionStay2D(Collision2D col)
     {
         if (col.gameObject.tag == "Enemy" && _EscudoAtivado)
         {
@@ -91,7 +91,7 @@ public class EscudoPlayer : MonoBehaviour
                 _EscudoLifeAtual = _EscudoLifeMax;
             }
         }
-    }
+    }*/
 
     public void IniciarEscudoPlayer()
     {

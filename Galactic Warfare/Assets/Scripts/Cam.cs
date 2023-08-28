@@ -10,9 +10,12 @@ public class Cam : MonoBehaviour
     [SerializeField] private GameObject _Enemy2;
     [SerializeField] private GameObject _Enemy3;
     [SerializeField] private GameObject _Meteoro;
+    [SerializeField] private GameObject _NaveMae;
+    
     [SerializeField] private Transform _Spawn1;
     [SerializeField] private Transform _Spawn2;
     [SerializeField] private Transform _Spawn3;
+    [SerializeField] private Transform _Spawn4;
     
     private Rigidbody2D rig;
 
@@ -20,6 +23,7 @@ public class Cam : MonoBehaviour
     private bool _2 = true;
     private bool _3 = true;
     private bool _4 = true;
+    private bool _NM = true;
     
     public float velocidade;
     
@@ -86,9 +90,17 @@ public class Cam : MonoBehaviour
             _3 = true;
         }
 
-        yield return new WaitForSeconds(30f);
+        yield return new WaitForSeconds(20f);
         _1 = false;
         _2 = false;
         _3 = false;
+        yield return new WaitForSeconds(10f);
+        
+        if (_NM)
+        {
+            _NM = false;
+            GameObject enemy4 = Instantiate(_NaveMae, _Spawn4.position, _Spawn4.rotation);
+            //yield return new WaitForSeconds(3600f);
+        }
     }
 }

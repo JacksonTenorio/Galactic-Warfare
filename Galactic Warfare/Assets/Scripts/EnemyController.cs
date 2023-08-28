@@ -114,6 +114,7 @@ public class EnemyController : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+            
         }
     }
 
@@ -127,6 +128,10 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if (PlayerController.tirosNM == 3)
+        {
+            playerHp.RecoverHealth();
+        }
         if (col.gameObject.tag == "DeathZone")
         {
             Destroy(gameObject);

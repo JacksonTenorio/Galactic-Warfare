@@ -8,6 +8,7 @@ public class Pause : MonoBehaviour
 {
     public GameObject painelPause;
     public GameObject painelGameOver;
+    public GameObject painelVitoria;
 
     private bool isGameOver;
 
@@ -20,18 +21,21 @@ public class Pause : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Escape) && !isGameOver)
+        if (!isGameOver)
         {
-            if (painelPause.activeSelf)
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Escape))
             {
-                painelPause.SetActive(false);
-                Time.timeScale = 1;
-                DesselecionarButao();
-            }
-            else
-            {
-                painelPause.SetActive(true);
-                Time.timeScale = 0;
+                if (painelPause.activeSelf)
+                {
+                    painelPause.SetActive(false);
+                    Time.timeScale = 1;
+                    DesselecionarButao();
+                }
+                else
+                {
+                    painelPause.SetActive(true);
+                    Time.timeScale = 0;
+                }
             }
         }
     }
@@ -56,6 +60,15 @@ public class Pause : MonoBehaviour
             Time.timeScale = 0;
             isGameOver = true;
             painelGameOver.SetActive(true);
+        }
+    }
+    public void Vitoria()
+    {
+        if (!isGameOver)
+        {
+            Time.timeScale = 0;
+            isGameOver = true;
+            painelVitoria.SetActive(true);
         }
     }
 }

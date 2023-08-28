@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     //Tiros
     public bool _IsShooting;
     public int tiros;
+    public static int tirosNM;
     public float _BalasTiro2;
     public float _Porcentagemlaser;
     public bool _Tiro2;
@@ -88,6 +89,8 @@ public class PlayerController : MonoBehaviour
         Contador();
         Selecao();
         LaserPlayer();
+
+        tirosNM = tiros;
     }
     
     // Chama a função.

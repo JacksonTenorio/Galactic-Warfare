@@ -187,7 +187,7 @@ GameObject:
   - component: {fileID: 8612465268058804359}
   m_Layer: 0
   m_Name: LaserNaveMae
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -764,10 +764,9 @@ GameObject:
   - component: {fileID: 8571918318546876065}
   - component: {fileID: 2151822559188384366}
   - component: {fileID: 2784869906757296487}
-  - component: {fileID: 1886848922683161912}
   m_Layer: 0
   m_Name: Escudo
-  m_TagString: Untagged
+  m_TagString: Escudo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -855,20 +854,6 @@ CircleCollider2D:
   m_Offset: {x: 0.00000047683716, y: -0.00000011920929}
   serializedVersion: 2
   m_Radius: 1.2500006
---- !u!114 &1886848922683161912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8733064781226740577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c72a0bb53e5bce4a931c82e0d4efb11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Escudo1: 0
-  _Escudo2: 1
 --- !u!1 &8930122023760633009
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,7 +883,7 @@ Transform:
   m_GameObject: {fileID: 8930122023760633009}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 8.91, y: -0.01, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.9326, y: 0.9326, z: 0.9326}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 939729699838705059}
@@ -1069,7 +1054,9 @@ MonoBehaviour:
   _FirePosition3: {fileID: 610696675717153299}
   _Laser: {fileID: 3350152209249023942, guid: da6fba7ebd01f194bab227f764dde34e, type: 3}
   _Missel: {fileID: 403538238757900139, guid: 47c8e21fb15be8743afaaa5c15860e90, type: 3}
+  _MisselPosition: {x: 0, y: 0}
   _LaserQueSegue: {fileID: 1166902531852682260}
+  _SpeedFire: 7
   _Speed: 0.6
   _Escudo: {fileID: 8733064781226740577}
   _EscudoVidaMax: 50
