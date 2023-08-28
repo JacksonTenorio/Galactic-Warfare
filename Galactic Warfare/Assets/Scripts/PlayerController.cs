@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private float _SpeedPlayer;
 
     //Tiros
-    public bool _IsShooting;
+    public static bool _IsShooting;
     public int tiros;
     public static int tirosNM;
     public float _BalasTiro2;
@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public GameObject _tiroRapido;
     public GameObject _tiroFguete;
     public GameObject _tiroLaser;
+    public GameObject _SuperTiroObj;
     public Transform _firePoint;
     
     //Seleção de tiro
@@ -37,6 +38,11 @@ public class PlayerController : MonoBehaviour
     public GameObject _Fundo2;
     public GameObject _Fundo3;
     
+    //Power Ups
+    public static bool _Municao;
+    public static bool _Raio;
+    public static bool _SuperTiro;
+
     private void OnEnable()
     {
         _playerInput.onActionTriggered += OnAction;
@@ -61,6 +67,10 @@ public class PlayerController : MonoBehaviour
     //Quando inicia o level.
     void Start()
     {
+        //PowerUps
+        _Municao = false;
+        _Raio = false;
+        
         //movimentos
         _SpeedPlayer = 4;
         _gameControls = new GameControls();
@@ -91,6 +101,21 @@ public class PlayerController : MonoBehaviour
         LaserPlayer();
 
         tirosNM = tiros;
+        
+        //PowerUps
+        if (_Municao)
+        {
+            _BalasTiro2 = 50;
+        }
+        if (_Raio)
+        {
+            _Porcentagemlaser = 100;
+        }
+
+        if (_SuperTiro)
+        {
+            //
+        }
     }
     
     // Chama a função.
@@ -125,6 +150,13 @@ public class PlayerController : MonoBehaviour
                 _IsShooting = false;
             }
         }
+        if (tiros == 4 && _IsShooting == false)
+        {
+            _IsShooting = true;
+            Instantiate(_SuperTiroObj, _firePoint.position, _firePoint.rotation);
+            yield return new WaitForSeconds(0.4f);
+            _IsShooting = false;
+        }
     }
 
     void TiroFoguete()
@@ -146,13 +178,18 @@ public class PlayerController : MonoBehaviour
     }
     void Contador()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) && !_SuperTiro)
         {
             tiros += 1;
             if (tiros > 3)
             {
                 tiros = 1;
             }
+        }
+
+        if (_SuperTiro)
+        {
+            tiros = 4;
         }
     }
 
@@ -225,20 +262,6 @@ public class PlayerController : MonoBehaviour
             _Fundo1.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0);
             _Fundo2.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0);
             _Fundo3.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0.1960784f);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Raio")
-        {
-            _Porcentagemlaser = 100;
-            Destroy(col.gameObject);
-        }
-        if (col.gameObject.tag == "Municao")
-        {
-            _BalasTiro2 = 50;
-            Destroy(col.gameObject);
         }
     }
 }

@@ -114,7 +114,10 @@ public class EnemyController : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-            
+            if (PlayerController.tirosNM == 3 && PlayerController._IsShooting)
+            {
+                playerHp.RecoverHealth();
+            }
         }
     }
 
@@ -128,7 +131,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (PlayerController.tirosNM == 3)
+        if (PlayerController.tirosNM == 3 && PlayerController._IsShooting)
         {
             playerHp.RecoverHealth();
         }

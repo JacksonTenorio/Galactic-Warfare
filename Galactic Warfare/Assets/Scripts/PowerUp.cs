@@ -6,6 +6,9 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour
 {
     public bool _Escudo;
+    public bool _Municao;
+    public bool _Raio;
+    public bool _SuperTiro;
     private bool _Direction;
     private float _Cont;
     private float _Speed;
@@ -67,6 +70,25 @@ public class PowerUp : MonoBehaviour
         {
             EscudoPlayer._AtivarEscudoPlayer = true;
             Destroy(gameObject);
+        }
+
+        if (col.gameObject.tag == "Player" && _Municao)
+        {
+            PlayerController._Municao = true;
+            Destroy(gameObject);
+            PlayerController._Municao = false;
+        }
+        if (col.gameObject.tag == "Player" && _Raio)
+        {
+            PlayerController._Raio = true;
+            Destroy(gameObject);
+            PlayerController._Raio = false;
+        }
+        if (col.gameObject.tag == "Player" && _SuperTiro)
+        {
+            PlayerController._SuperTiro = true;
+            Destroy(gameObject);
+            PlayerController._SuperTiro = false;
         }
     }
     
