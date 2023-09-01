@@ -10,6 +10,7 @@ public class EnemyHP : MonoBehaviour
     public GameObject _Raio;
     public GameObject _Municao;
     public GameObject _Escudo;
+    public GameObject _Supertiro;
     private Transform _EnemyAtual;
     
     private int _Chance;
@@ -216,7 +217,7 @@ public class EnemyHP : MonoBehaviour
 
     public void PowerUP()
     {
-        _Chance = Random.Range(1,10);
+        _Chance = Random.Range(1,13);
     }
 
     public void SpawnerPowerUp()
@@ -232,6 +233,10 @@ public class EnemyHP : MonoBehaviour
         if (_Chance == 3 && _Pu)
         {
             Instantiate(_Escudo, _EnemyAtual.position, _Escudo.transform.rotation);
+        }
+        if (_Chance == 4 && _Pu)
+        {
+            Instantiate(_Supertiro, _EnemyAtual.position, _Supertiro.transform.rotation);
         }
     }
 

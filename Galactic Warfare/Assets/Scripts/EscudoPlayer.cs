@@ -7,8 +7,8 @@ public class EscudoPlayer : MonoBehaviour
     private PlayerController _playerController;
 
     // ======================== Player ========================
-    private int _EscudoLifeMax;
-    private int _EscudoLifeAtual;
+    private float _EscudoLifeMax;
+    public static float _EscudoLifeAtual;
     
     public static bool _EscudoAtivado;
 
@@ -37,6 +37,11 @@ public class EscudoPlayer : MonoBehaviour
         }
         else
         {
+            DesativarEscudoPlayer();
+        }
+        if (_EscudoLifeAtual <= 0)
+        {
+            PlayerHP._VidaDoEscudoPlayer = false;
             DesativarEscudoPlayer();
         }
     }
@@ -76,11 +81,11 @@ public class EscudoPlayer : MonoBehaviour
         }
     }
     
-    /*private void OnCollisionStay2D(Collision2D col)
+    private void OnCollisionStay2D(Collision2D col)
     {
-        if (col.gameObject.tag == "Enemy" && _EscudoAtivado)
+        if (col.gameObject.tag == "LaserNM" && _EscudoAtivado)
         {
-            _EscudoLifeAtual -= 1;
+            _EscudoLifeAtual -= 0.5F;
 
             if (_EscudoLifeAtual <= 0)
             {
@@ -91,7 +96,7 @@ public class EscudoPlayer : MonoBehaviour
                 _EscudoLifeAtual = _EscudoLifeMax;
             }
         }
-    }*/
+    }
 
     public void IniciarEscudoPlayer()
     {

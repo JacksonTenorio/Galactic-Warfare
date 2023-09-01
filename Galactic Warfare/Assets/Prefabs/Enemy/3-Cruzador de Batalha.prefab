@@ -313,6 +313,7 @@ MonoBehaviour:
   _Raio: {fileID: 473144193951170343, guid: bffdb64d38b0b8b4cb63f4012d6d0865, type: 3}
   _Municao: {fileID: 2731460648219096914, guid: 9bf75b7a99c88b648974550d728d28bb, type: 3}
   _Escudo: {fileID: 3558403420360818624, guid: d3f4a70b8d413b243993bfb061cc863e, type: 3}
+  _Supertiro: {fileID: 6022561159224210702, guid: 7092b3e961daf564087f915a6b84c828, type: 3}
   _Enemy1: {fileID: 0}
   _Enemy2: {fileID: 0}
   _Enemy3: {fileID: 1137438452854181953}

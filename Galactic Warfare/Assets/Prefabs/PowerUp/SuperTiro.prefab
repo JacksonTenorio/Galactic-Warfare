@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2404376941906487427}
   - component: {fileID: 641427786175163643}
-  - component: {fileID: 109872325273097487}
   - component: {fileID: 625335545548646471}
   - component: {fileID: 2498730372475100095}
+  - component: {fileID: -3773508082438506069}
   m_Layer: 0
   m_Name: SuperTiro
   m_TagString: Untagged
@@ -87,21 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &109872325273097487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6022561159224210702}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1acadea17a94a2a458fab2ad7d0ed576, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Escudo: 0
-  _Municao: 0
-  _Raio: 0
 --- !u!50 &625335545548646471
 Rigidbody2D:
   serializedVersion: 4
@@ -133,7 +118,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -203,3 +188,19 @@ PolygonCollider2D:
       - {x: 0.016666668, y: -0.49444446}
       - {x: 0.034444444, y: -0.4188889}
       - {x: 0.04777778, y: -0.36555555}
+--- !u!114 &-3773508082438506069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6022561159224210702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1acadea17a94a2a458fab2ad7d0ed576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Escudo: 0
+  _Municao: 0
+  _Raio: 0
+  _SuperTiro: 1

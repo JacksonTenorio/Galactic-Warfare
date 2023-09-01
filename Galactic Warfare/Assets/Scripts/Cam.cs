@@ -94,7 +94,7 @@ public class Cam : MonoBehaviour
         _1 = false;
         _2 = false;
         _3 = false;
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(20f);
         
         if (_NM)
         {

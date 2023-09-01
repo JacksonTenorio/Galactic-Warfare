@@ -82,6 +82,7 @@ public class PlayerController : MonoBehaviour
         _BalasTiro2 = 0;
         tiros = 1;
         _Porcentagemlaser = 0;
+        _SuperTiro = false;
 
         //seleção dos tiros
         _Fundo1 = GameObject.Find("Fundo1").gameObject;
@@ -92,7 +93,7 @@ public class PlayerController : MonoBehaviour
     }
     
     //Verifica a cada instante.
-    private void Update()
+    public void Update()
     {
         TiroFoguete();
         TirosOn();
@@ -101,21 +102,6 @@ public class PlayerController : MonoBehaviour
         LaserPlayer();
 
         tirosNM = tiros;
-        
-        //PowerUps
-        if (_Municao)
-        {
-            _BalasTiro2 = 50;
-        }
-        if (_Raio)
-        {
-            _Porcentagemlaser = 100;
-        }
-
-        if (_SuperTiro)
-        {
-            //
-        }
     }
     
     // Chama a função.
@@ -141,7 +127,7 @@ public class PlayerController : MonoBehaviour
 
         if (tiros == 2)
         {
-            if (_Tiro2 == true && _IsShooting == false)
+            if (_Tiro2 && _IsShooting == false)
             {
                 _IsShooting = true;
                 Instantiate(_tiroFguete, _firePoint.position, _firePoint.rotation);
@@ -154,17 +140,19 @@ public class PlayerController : MonoBehaviour
         {
             _IsShooting = true;
             Instantiate(_SuperTiroObj, _firePoint.position, _firePoint.rotation);
-            yield return new WaitForSeconds(0.4f);
             _IsShooting = false;
+            _SuperTiro = false;
+            tiros = 1;
         }
     }
 
     void TiroFoguete()
     {
-        if (_BalasTiro2 >= 50)
+        if (_Municao)
         {
             _BalasTiro2 = 50;
-            _Tiro2 = true;
+            Debug.Log("Recarregar");
+            _Municao = false;
         }
         if (_BalasTiro2 > 0 && _BalasTiro2 <= 50)
         {
@@ -195,6 +183,11 @@ public class PlayerController : MonoBehaviour
 
     void LaserPlayer()
     {
+        if (_Raio)
+        {
+            _Porcentagemlaser = 100;
+            _Raio = false;
+        }
         if (tiros == 3)
         {
             if (_Porcentagemlaser > 0)
@@ -229,7 +222,7 @@ public class PlayerController : MonoBehaviour
                     _tiroLaser.GetComponent<CapsuleCollider2D>().enabled = false;
                 }
             }
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (Input.GetKeyUp(KeyCode.Space) && _Tiro3)
             {
                 _IsShooting = false;
                 _tiroLaser.GetComponent<SpriteRenderer>().color = new Color(1, 0.130547f, 0 , 0);
@@ -262,6 +255,12 @@ public class PlayerController : MonoBehaviour
             _Fundo1.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0);
             _Fundo2.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0);
             _Fundo3.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0.1960784f);
+        }
+        if (tiros == 4)
+        {
+            _Fundo1.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0.1960784f);
+            _Fundo2.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0);
+            _Fundo3.GetComponent<Image>().color = new Color(1, 0.952381f, 0, 0);
         }
     }
 }

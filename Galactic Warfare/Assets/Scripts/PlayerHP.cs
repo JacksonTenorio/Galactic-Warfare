@@ -17,11 +17,17 @@ public class PlayerHP : MonoBehaviour
     
     public int _damageAmount = 5;
     public int _recoveryAmount = 10;
+    
+    //Escudo
+    public bool _VerificaEscudoPlayer;
+    public static bool _VidaDoEscudoPlayer;
+    
     private void Start()
     {
         _healthBar = GameObject.FindGameObjectWithTag("Slider").GetComponent<Slider>();
         scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
         _currentHealth = _maxHealth;
+        _VidaDoEscudoPlayer = false;
     }
     
     void Update()
@@ -35,6 +41,13 @@ public class PlayerHP : MonoBehaviour
         if (_currentHealth > 100)
         {
             _currentHealth = 100;
+        }
+
+        _VerificaEscudoPlayer = EscudoPlayer._EscudoAtivado;
+
+        if (_VidaDoEscudoPlayer)
+        {
+            EscudoPlayer._EscudoLifeAtual -= 0.1f;
         }
     }
 

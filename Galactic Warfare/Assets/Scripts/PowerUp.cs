@@ -19,7 +19,7 @@ public class PowerUp : MonoBehaviour
         rig = GetComponent<Rigidbody2D>();
         _Direction = false;
         _Speed = 1;
-        Timer = 6;
+        Timer = 10;
     }
 
     // Update is called once per frame
@@ -64,7 +64,7 @@ public class PowerUp : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player" && _Escudo)
         {
@@ -76,19 +76,18 @@ public class PowerUp : MonoBehaviour
         {
             PlayerController._Municao = true;
             Destroy(gameObject);
-            PlayerController._Municao = false;
         }
+        
         if (col.gameObject.tag == "Player" && _Raio)
         {
             PlayerController._Raio = true;
             Destroy(gameObject);
-            PlayerController._Raio = false;
         }
+        
         if (col.gameObject.tag == "Player" && _SuperTiro)
         {
             PlayerController._SuperTiro = true;
             Destroy(gameObject);
-            PlayerController._SuperTiro = false;
         }
     }
     

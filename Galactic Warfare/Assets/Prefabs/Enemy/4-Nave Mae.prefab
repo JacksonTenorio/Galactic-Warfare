@@ -185,9 +185,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3069442667436055937}
   - component: {fileID: 8612465268058804359}
+  - component: {fileID: 1351676148}
+  - component: {fileID: 1351676147}
   m_Layer: 0
   m_Name: LaserNaveMae
-  m_TagString: Laser
+  m_TagString: LaserNM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -259,6 +261,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &1351676148
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166902531852682260}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 1, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.5, y: 0.5}
+      - {x: -0.65234375, y: 0.47265625}
+      - {x: -0.79296875, y: 0.40234375}
+      - {x: -0.90234375, y: 0.29296875}
+      - {x: -0.97265625, y: 0.15234375}
+      - {x: -1, y: 0}
+      - {x: -0.97265625, y: -0.15234375}
+      - {x: -0.90234375, y: -0.29296875}
+      - {x: -0.79296875, y: -0.40234375}
+      - {x: -0.65234375, y: -0.47265625}
+      - {x: -0.5, y: -0.5}
+      - {x: -0.34765625, y: -0.47265625}
+      - {x: -0.20703125, y: -0.40234375}
+      - {x: -0.09765625, y: -0.29296875}
+      - {x: -0.02734375, y: -0.15234375}
+      - {x: 0, y: 0}
+      - {x: -0.02734375, y: 0.15234375}
+      - {x: -0.09765625, y: 0.29296875}
+      - {x: -0.20703125, y: 0.40234375}
+      - {x: -0.34765625, y: 0.47265625}
+--- !u!114 &1351676147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166902531852682260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 611cc4b20a74c684bb2b63d6d37fac31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1739646628750667808
 GameObject:
   m_ObjectHideFlags: 0

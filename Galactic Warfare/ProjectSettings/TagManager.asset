@@ -19,8 +19,9 @@ TagManager:
   - LaserPlayer
   - PowerUp
   - Raio
-  - Escudo.
+  - LaserNM
   - Municao
+  - Escudo.
   layers:
   - Default
   - TransparentFX
