@@ -26,7 +26,7 @@ public class Cam : MonoBehaviour
     private bool _NM = true;
     
     public float velocidade;
-    
+
     // Start is called before the first frame update
     void Start()
     {

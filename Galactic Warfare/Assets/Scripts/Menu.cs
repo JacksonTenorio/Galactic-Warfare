@@ -8,25 +8,18 @@ public class Menu : MonoBehaviour
 { 
     public void MenuPrincipal()
     {
-        SceneManager.LoadScene(0);
+        GameManager.Instance.MenuPrincipal();
     }
     public void Jogar()
     {
-        Time.timeScale = 1;
-        SceneManager.LoadScene(1);
+        GameManager.Instance.Jogar();
     }
     public void Creditos()
     {
-        SceneManager.LoadScene(2);
+        GameManager.Instance.Creditos();
     }
     public void Sair()
     {
-        Application.Quit();
-        Debug.Log("Sair do jogo");
-        DesselecionarButao();
-    }
-    public void DesselecionarButao()
-    {
-        EventSystem.current.SetSelectedGameObject(null);
+        GameManager.Instance.Sair();
     }
 }
