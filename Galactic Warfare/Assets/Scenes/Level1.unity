@@ -864,8 +864,6 @@ MonoBehaviour:
   _Spawn3: {fileID: 53537906}
   _Spawn4: {fileID: 832612758}
   velocidade: 0.6
-  player: {fileID: 351002852689595106, guid: b17820ff96359254da7f42c1e6c9d4ef, type: 3}
-  playerPosition: {fileID: 812742957}
 --- !u!50 &212332919
 Rigidbody2D:
   serializedVersion: 4
@@ -1435,7 +1433,7 @@ GameObject:
   - component: {fileID: 812742958}
   m_Layer: 0
   m_Name: SpawnPlayer
-  m_TagString: Untagged
+  m_TagString: SpawnPlayer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

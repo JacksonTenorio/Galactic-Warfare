@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    public GameObject player;
+    public Transform playerPosition;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +43,11 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene("GUI");
-        SceneManager.LoadScene("Level1", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Level1", LoadSceneMode.Additive).completed += delegate(AsyncOperation operation)
+        {
+            playerPosition = GameObject.FindWithTag("SpawnPlayer").transform;
+            Instantiate(player, playerPosition.position, player.transform.rotation);
+        };
     }
     public void Creditos()
     {

@@ -22,6 +22,7 @@ TagManager:
   - LaserNM
   - Municao
   - Escudo.
+  - SpawnPlayer
   layers:
   - Default
   - TransparentFX
