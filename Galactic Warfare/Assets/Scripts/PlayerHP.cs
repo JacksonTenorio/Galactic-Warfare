@@ -10,13 +10,14 @@ public class PlayerHP : MonoBehaviour
 {
     private ScoreManager scoreManager;
     
-    public Slider _healthBar;
-
+    public static Text scoreLifeText;
+    public static int scoreLife = 5;
+    
     private float _currentHealth;
     public float _maxHealth;
     
     public int _damageAmount = 5;
-    public int _recoveryAmount = 10;
+    public static int _recoveryAmount = 10;
     
     //Escudo
     public bool _VerificaEscudoPlayer;
@@ -24,7 +25,7 @@ public class PlayerHP : MonoBehaviour
     
     private void Start()
     {
-        _healthBar = GameObject.FindGameObjectWithTag("Slider").GetComponent<Slider>();
+        scoreLife = 5;
         scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
         _currentHealth = _maxHealth;
         _VidaDoEscudoPlayer = false;
@@ -35,7 +36,7 @@ public class PlayerHP : MonoBehaviour
         if (_currentHealth <= 0 )
         {
             _currentHealth = 0;
-            scoreManager.Life();
+            Life();
         }
         
         if (_currentHealth > 100)
@@ -49,6 +50,11 @@ public class PlayerHP : MonoBehaviour
         {
             EscudoPlayer._EscudoLifeAtual -= 0.1f;
         }
+        
+        Observer.AtualizaVidaPlayer(_currentHealth);
+        
+        scoreLifeText.text = scoreLife + "X";
+        Observer.AtualizarTextoDaVidaPlayer(scoreLifeText.text);
     }
 
     public void TakeDamage(float damage = -1)
@@ -57,7 +63,6 @@ public class PlayerHP : MonoBehaviour
             damage = _damageAmount;
         
         _currentHealth -= damage;
-        UpdateHealthBar();
     }
     
     public void RecoverHealth(float recovery = -1)
@@ -66,12 +71,6 @@ public class PlayerHP : MonoBehaviour
             recovery = _recoveryAmount;
         
         _currentHealth += recovery;
-        UpdateHealthBar();
-    }
-    
-    public void UpdateHealthBar()
-    {
-        _healthBar.value = _currentHealth;
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -92,6 +91,19 @@ public class PlayerHP : MonoBehaviour
         {
             TakeDamage(10);
             Destroy(col.gameObject);
+        }
+    }
+
+    public static void Life()
+    {
+        scoreLife -= 1;
+
+        _recoveryAmount = 100;
+
+        if (scoreLife <= 0)
+        {
+            //SceneManager.LoadScene("Level1");
+            Pause.GameOver();
         }
     }
 }

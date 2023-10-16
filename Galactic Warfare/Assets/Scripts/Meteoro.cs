@@ -12,8 +12,11 @@ public class Meteoro : MonoBehaviour
 
     private Rigidbody2D rig;
     private float speed = 3;
+
+    private int pontuacao;
     void Start()
     {
+        pontuacao = 100;
         rig = GetComponent<Rigidbody2D>();
         playerHp = GameObject.FindWithTag("Player").GetComponent<PlayerHP>();
         _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
@@ -42,7 +45,7 @@ public class Meteoro : MonoBehaviour
         {
             if (_playerController.tiros == 3)
             {
-                scoreManager.IncreaseScore();
+                Observer.AtualizarPontuacao(pontuacao);
                 Destroy(gameObject);
             }
         }
@@ -54,7 +57,7 @@ public class Meteoro : MonoBehaviour
         {
             if (_playerController.tiros == 1 || _playerController.tiros == 2)
             {
-                scoreManager.IncreaseScore();
+                Observer.AtualizarPontuacao(pontuacao);
                 Destroy(col.gameObject);
                 Destroy(gameObject);
             }

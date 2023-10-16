@@ -18,7 +18,7 @@ public class DeathZone : MonoBehaviour
     {
         if (col.gameObject.tag == "Player")
         {
-            scoreManager.Life();
+            PlayerHP.Life();
         }
         
         if (col.gameObject.tag == "Enemy")

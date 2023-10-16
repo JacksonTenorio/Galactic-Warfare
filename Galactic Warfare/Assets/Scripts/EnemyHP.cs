@@ -33,9 +33,13 @@ public class EnemyHP : MonoBehaviour
     public bool _1;
     public bool _2;
     public bool _3;
+    
+    //Pontuação
+    private int pontuacao;
 
     private void Start()
     {
+        pontuacao = 100;
         scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
         _playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         _HPAtual = _MaxHP;
@@ -73,11 +77,12 @@ public class EnemyHP : MonoBehaviour
 
                 if (_HPAtual <= 0)
                 {
-                    scoreManager.IncreaseScore();
                     _estaVivo = false;
                     _EnemyAtual = _Enemy1.transform;
                     SpawnerPowerUp();
                     Destroy(gameObject);
+                    
+                    Observer.AtualizarPontuacao(pontuacao);
                 }
             }
         }
@@ -95,11 +100,11 @@ public class EnemyHP : MonoBehaviour
 
                     if (_HPAtual <= 0)
                     {
-                        scoreManager.IncreaseScore();
                         _estaVivo = false;
                         _EnemyAtual = _Enemy2.transform;
                         SpawnerPowerUp();
                         Destroy(gameObject);
+                        Observer.AtualizarPontuacao(pontuacao);
                     }
                 }
             }
@@ -118,11 +123,11 @@ public class EnemyHP : MonoBehaviour
 
                     if (_HPAtual <= 0)
                     {
-                        scoreManager.IncreaseScore();
                         _estaVivo = false;
                         _EnemyAtual = _Enemy3.transform;
                         SpawnerPowerUp();
                         Destroy(gameObject);
+                        Observer.AtualizarPontuacao(pontuacao);
                     }
                 }
             }
@@ -147,11 +152,11 @@ public class EnemyHP : MonoBehaviour
                 }
                 if (_HPAtual <= 0)
                 {
-                    scoreManager.IncreaseScore();
                     _estaVivo = false;
                     _EnemyAtual = _Enemy1.transform;
                     SpawnerPowerUp();
                     Destroy(gameObject);
+                    Observer.AtualizarPontuacao(pontuacao);
                 }
             }
         }
@@ -175,11 +180,11 @@ public class EnemyHP : MonoBehaviour
 
                     if (_HPAtual <= 0)
                     {
-                        scoreManager.IncreaseScore();
                         _estaVivo = false;
                         _EnemyAtual = _Enemy2.transform;
                         SpawnerPowerUp();
                         Destroy(gameObject);
+                        Observer.AtualizarPontuacao(pontuacao);
                     }
                 }
             }
@@ -204,11 +209,11 @@ public class EnemyHP : MonoBehaviour
 
                     if (_HPAtual <= 0)
                     {
-                        scoreManager.IncreaseScore();
                         _estaVivo = false;
                         _EnemyAtual = _Enemy3.transform;
                         SpawnerPowerUp();
                         Destroy(gameObject);
+                        Observer.AtualizarPontuacao(pontuacao);
                     }
                 }
             }

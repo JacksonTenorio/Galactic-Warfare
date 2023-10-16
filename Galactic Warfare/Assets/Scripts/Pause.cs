@@ -7,10 +7,10 @@ using UnityEngine.EventSystems;
 public class Pause : MonoBehaviour
 {
     public GameObject painelPause;
-    public GameObject painelGameOver;
+    public static GameObject painelGameOver;
     public GameObject painelVitoria;
 
-    private bool isGameOver;
+    private static bool isGameOver;
 
     private void Start()
     {
@@ -53,7 +53,7 @@ public class Pause : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
     }
 
-    public void GameOver()
+    public static void GameOver()
     {
         if (!isGameOver)
         {

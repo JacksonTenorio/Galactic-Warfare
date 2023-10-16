@@ -151,7 +151,6 @@ public class PlayerController : MonoBehaviour
         if (_Municao)
         {
             _BalasTiro2 = 50;
-            Debug.Log("Recarregar");
             _Municao = false;
         }
         if (_BalasTiro2 > 0 && _BalasTiro2 <= 50)

@@ -1006,7 +1006,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   painelPause: {fileID: 1854198809}
-  painelGameOver: {fileID: 129939074}
   painelVitoria: {fileID: 1331809009}
 --- !u!114 &685990646
 MonoBehaviour:
@@ -2632,7 +2631,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 50
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2709,6 +2708,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501899636}
   m_CullTransparentMesh: 1
+--- !u!1 &1547519848
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1547519850}
+  - component: {fileID: 1547519849}
+  - component: {fileID: 1547519851}
+  m_Layer: 0
+  m_Name: Update
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1547519849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547519848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35fdc46bb07f78644971916a11d8ac90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthBar: {fileID: 229404702}
+  scoreLifeText: {fileID: 493789359}
+--- !u!4 &1547519850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547519848}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 585.2562, y: 500, z: -4.6097527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1547519851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547519848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17fa784329c5f8943aad19b61fee41f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerController2: {fileID: 0}
+  scoreText: {fileID: 2037324891}
+  scoreTiroFoguete: {fileID: 0}
+  scoreTiroLaser: {fileID: 0}
 --- !u!1 &1567343706
 GameObject:
   m_ObjectHideFlags: 0
@@ -3496,7 +3558,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100%
+  m_text: 0%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3850,12 +3912,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17fa784329c5f8943aad19b61fee41f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 7816069089303949929, guid: b17820ff96359254da7f42c1e6c9d4ef, type: 3}
   playerController2: {fileID: 0}
-  playerHp: {fileID: 0}
-  _SpawnPlayer: {fileID: 0}
   scoreText: {fileID: 2037324891}
-  scoreLifeText: {fileID: 493789359}
   scoreTiroFoguete: {fileID: 1501899638}
   scoreTiroLaser: {fileID: 1842864414}
 --- !u!1 &2037324889
