@@ -5,22 +5,26 @@ using UnityEngine;
 
 public class LaserNaveMae : MonoBehaviour
 {
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnEnable()
     {
-        if (other.gameObject.tag == "Player")
+        Observer.OnTriggerStayPlayer += DanoParaDar;
+    }
+    
+    private void OnDisable()
+    {
+        Observer.OnTriggerStayPlayer -= DanoParaDar;
+    }
+
+    public void DanoParaDar()
+    {
+        if (PlayerHP._VerificaEscudoPlayer == false)
         {
-            PlayerHP _PlayerHP = other.gameObject.GetComponent<PlayerHP>();
-            PlayerHP _EscudoPlayer = other.gameObject.GetComponent<PlayerHP>();
-            
-            if (_EscudoPlayer._VerificaEscudoPlayer == false)
-            {
-                PlayerHP._VidaDoEscudoPlayer = false;
-                _PlayerHP.TakeDamage(0.5f);
-            }
-            else if (_EscudoPlayer._VerificaEscudoPlayer)
-            {
-                PlayerHP._VidaDoEscudoPlayer = true;
-            }
+            PlayerHP._VidaDoEscudoPlayer = false;
+            PlayerHP.TakeDamage(0.5f);
+        }
+        else if (PlayerHP._VerificaEscudoPlayer)
+        {
+            PlayerHP._VidaDoEscudoPlayer = true;
         }
     }
 }

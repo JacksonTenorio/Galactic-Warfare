@@ -10,16 +10,16 @@ public class PlayerHP : MonoBehaviour
 {
     private ScoreManager scoreManager;
     
-    public Slider _healthBar;
+    public static Slider _healthBar;
 
-    private float _currentHealth;
+    private static float _currentHealth;
     public float _maxHealth;
     
-    public int _damageAmount = 5;
+    public static int _damageAmount = 5;
     public int _recoveryAmount = 10;
     
     //Escudo
-    public bool _VerificaEscudoPlayer;
+    public static bool _VerificaEscudoPlayer;
     public static bool _VidaDoEscudoPlayer;
     
     private void Start()
@@ -51,7 +51,7 @@ public class PlayerHP : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage = -1)
+    public static void TakeDamage(float damage = -1)
     {
         if (damage < 0)
             damage = _damageAmount;
@@ -69,7 +69,7 @@ public class PlayerHP : MonoBehaviour
         UpdateHealthBar();
     }
     
-    public void UpdateHealthBar()
+    public static void UpdateHealthBar()
     {
         _healthBar.value = _currentHealth;
     }

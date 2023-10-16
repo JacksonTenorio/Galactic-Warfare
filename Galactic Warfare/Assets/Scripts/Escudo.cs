@@ -15,6 +15,18 @@ public class Escudo : MonoBehaviour
     public bool _Escudo1;
     public bool _Escudo2;
     
+    private void OnEnable()
+    {
+        Observer.OnTriggerLaserPlayer += VidaEcudoEDanoLaserPlayer;
+        Observer.OnTriggerBalaPlayer += VidaEcudoEDanoBalaPlayer;
+    }
+
+    private void OnDisable()
+    {
+        Observer.OnTriggerLaserPlayer -= VidaEcudoEDanoLaserPlayer;
+        Observer.OnTriggerBalaPlayer -= VidaEcudoEDanoBalaPlayer;
+    }
+    
     private void Start()
     {
         EscudoEnemyIniciar();
@@ -31,11 +43,11 @@ public class Escudo : MonoBehaviour
         _escudoAtivado2 = true;
     }
 
-    private void OnTriggerStay2D(Collider2D col)
+    private void VidaEcudoEDanoLaserPlayer()
     {
         if (_Escudo1 == true)
         {
-            if (col.gameObject.tag == "LaserPlayer" && _escudoAtivado1 == true)
+            if (_escudoAtivado1 == true)
             {
                 if (_playerController.tiros == 3)
                 {
@@ -51,7 +63,7 @@ public class Escudo : MonoBehaviour
         }
         if (_Escudo2 == true)
         {
-            if (col.gameObject.tag == "LaserPlayer" && _escudoAtivado1 == true)
+            if (_escudoAtivado1 == true)
             {
                 
                 if (_playerController.tiros == 3)
@@ -68,22 +80,20 @@ public class Escudo : MonoBehaviour
             }
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D col)
+    
+    private void VidaEcudoEDanoBalaPlayer()
     {
         if (_Escudo1 == true)
         {
-            if (col.gameObject.tag == "Bala" && _escudoAtivado1 == true)
+            if (_escudoAtivado1 == true)
             {
                 if (_playerController.tiros == 1)
                 {
                     _escudoHPAtual -= 1;
-                    Destroy(col.gameObject);
                 }
                 if (_playerController.tiros == 2)
                 {
                     _escudoHPAtual -= 2;
-                    Destroy(col.gameObject);
                 }
 
                 if (_escudoHPAtual <= 0)
@@ -96,17 +106,15 @@ public class Escudo : MonoBehaviour
         }
         if (_Escudo2 == true)
         {
-            if (col.gameObject.tag == "Bala" && _escudoAtivado2 == true)
+            if (_escudoAtivado2 == true)
             {
                 if (_playerController.tiros == 1)
                 {
                     _escudoHPAtual -= 1;
-                    Destroy(col.gameObject);
                 }
                 if (_playerController.tiros == 2)
                 {
                     _escudoHPAtual -= 2;
-                    Destroy(col.gameObject);
                 }
 
                 if (_escudoHPAtual <= 0)

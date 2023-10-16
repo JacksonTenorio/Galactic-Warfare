@@ -14,6 +14,17 @@ public class PowerUp : MonoBehaviour
     private float _Speed;
     private float Timer;
     private Rigidbody2D rig;
+
+    private void OnEnable()
+    {
+        Observer.OnTriggerEnterPlayer += AtivarPowerUps;
+    }
+
+    private void OnDisable()
+    {
+        Observer.OnTriggerEnterPlayer -= AtivarPowerUps;
+    }
+
     private void Start()
     {
         rig = GetComponent<Rigidbody2D>();
@@ -64,31 +75,30 @@ public class PowerUp : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter2D(Collider2D col)
+    private void AtivarPowerUps()
     {
-        if (col.gameObject.tag == "Player" && _Escudo)
+        if (_Escudo)
         {
             EscudoPlayer._AtivarEscudoPlayer = true;
             Destroy(gameObject);
         }
 
-        if (col.gameObject.tag == "Player" && _Municao)
+        if (_Municao)
         {
             PlayerController._Municao = true;
             Destroy(gameObject);
         }
         
-        if (col.gameObject.tag == "Player" && _Raio)
+        if (_Raio)
         {
             PlayerController._Raio = true;
             Destroy(gameObject);
         }
         
-        if (col.gameObject.tag == "Player" && _SuperTiro)
+        if (_SuperTiro)
         {
             PlayerController._SuperTiro = true;
             Destroy(gameObject);
         }
     }
-    
 }

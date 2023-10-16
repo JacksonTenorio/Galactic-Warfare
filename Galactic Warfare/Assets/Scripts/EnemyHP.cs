@@ -34,6 +34,18 @@ public class EnemyHP : MonoBehaviour
     public bool _2;
     public bool _3;
 
+    private void OnEnable()
+    {
+        Observer.OnTriggerLaserPlayer += VidaDoInimigoEDanoLaserPlayer;
+        Observer.OnTriggerBalaPlayer += VidaDoInimigoEDanoBalaPlayer;
+    }
+
+    private void OnDisable()
+    {
+        Observer.OnTriggerLaserPlayer -= VidaDoInimigoEDanoLaserPlayer;
+        Observer.OnTriggerBalaPlayer -= VidaDoInimigoEDanoBalaPlayer;
+    }
+
     private void Start()
     {
         scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
@@ -60,11 +72,11 @@ public class EnemyHP : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D col)
+    private void VidaDoInimigoEDanoLaserPlayer()
     {
         if (_1 == true)
         {
-            if (col.gameObject.tag == "LaserPlayer" && _estaVivo == true)
+            if (_estaVivo == true)
             {
                 if (_playerController.tiros == 3)
                 {
@@ -86,7 +98,7 @@ public class EnemyHP : MonoBehaviour
         {
             if (Escudo._escudoAtivado1 == false)
             {
-                if (col.gameObject.tag == "LaserPlayer" && _estaVivo == true)
+                if (_estaVivo == true)
                 {
                     if (_playerController.tiros == 3)
                     {
@@ -109,7 +121,7 @@ public class EnemyHP : MonoBehaviour
         {
             if (Escudo._escudoAtivado2 == false)
             {
-                if (col.gameObject.tag == "LaserPlayer" && _estaVivo == true)
+                if (_estaVivo == true)
                 {
                     if (_playerController.tiros == 3)
                     {
@@ -129,21 +141,19 @@ public class EnemyHP : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D col)
+    private void VidaDoInimigoEDanoBalaPlayer()
     {
         if (_1 == true)
         {
-            if (col.gameObject.tag == "Bala" && _estaVivo == true)
+            if (_estaVivo == true)
             {
                 if (_playerController.tiros == 1)
                 {
                     _HPAtual -= 1;
-                    Destroy(col.gameObject);
                 }
                 if (_playerController.tiros == 2)
                 {
                     _HPAtual -= 2;
-                    Destroy(col.gameObject);
                 }
                 if (_HPAtual <= 0)
                 {
@@ -160,17 +170,15 @@ public class EnemyHP : MonoBehaviour
         {
             if (Escudo._escudoAtivado1 == false)
             {
-                if (col.gameObject.tag == "Bala" && _estaVivo == true)
+                if (_estaVivo == true)
                 {
                     if (_playerController.tiros == 1)
                     {
                         _HPAtual -= 1;
-                        Destroy(col.gameObject);
                     }
                     if (_playerController.tiros == 2)
                     {
                         _HPAtual -= 2;
-                        Destroy(col.gameObject);
                     }
 
                     if (_HPAtual <= 0)
@@ -189,17 +197,15 @@ public class EnemyHP : MonoBehaviour
         {
             if (Escudo._escudoAtivado2 == false)
             {
-                if (col.gameObject.tag == "Bala" && _estaVivo == true)
+                if (_estaVivo == true)
                 {
                     if (_playerController.tiros == 1)
                     {
                         _HPAtual -= 1;
-                        Destroy(col.gameObject);
                     }
                     if (_playerController.tiros == 2)
                     {
                         _HPAtual -= 2;
-                        Destroy(col.gameObject);
                     }
 
                     if (_HPAtual <= 0)

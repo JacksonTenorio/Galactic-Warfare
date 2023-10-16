@@ -28,11 +28,19 @@ public class Tiros : MonoBehaviour
             Destroy(gameObject, 1.3f);
         }
     }
-    private void OnTriggerEnter2D(Collider2D col)
+
+    private void OnEnable()
     {
-        if (col.gameObject.tag == "Enemy")
-        {
-            Destroy(gameObject);
-        }
+        Observer.OnTriggerEnterEnemy += Destroi;
+    }
+
+    private void OnDisable()
+    {
+        Observer.OnTriggerEnterEnemy -= Destroi;
+    }
+
+    private void Destroi()
+    {
+        Destroy(gameObject);
     }
 }

@@ -5,13 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="85a9e8c3-c47e-4247-a254-ed8aefc5f59e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Observer.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Galactic Warfare/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Galactic Warfare/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Initialization.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Initialization.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DeathZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DeathZone.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EnemyHP.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EnemyHP.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Escudo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Escudo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EscudoPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EscudoPlayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LaserNaveMae.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LaserNaveMae.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/NaveMae.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/NaveMae.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerHP.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerHP.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PowerUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PowerUp.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScoreManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScoreManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SuperTiro.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SuperTiro.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiros.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tiros.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,6 +160,7 @@
       <workItem from="1696849508774" duration="22000" />
       <workItem from="1696849603972" duration="127000" />
       <workItem from="1696849799462" duration="2955000" />
+      <workItem from="1697417968444" duration="7892000" />
     </task>
     <servers />
   </component>

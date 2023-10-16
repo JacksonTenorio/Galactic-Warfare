@@ -23,6 +23,20 @@ public class EnemyController : MonoBehaviour
     public bool _Enemy2;
     public bool _Enemy3;
     
+    private void OnEnable()
+    {
+        Observer.OnCollisionEnterPlayer += DestroiEnemy1;
+        Observer.OnTriggerStart += HabilitarStart;
+        Observer.OnTriggerStart += DasabilitarStart;
+    }
+
+    private void OnDisable()
+    {
+        Observer.OnCollisionEnterPlayer -= DestroiEnemy1;
+        Observer.OnTriggerStart -= HabilitarStart;
+        Observer.OnTriggerStart -= DasabilitarStart;
+    }
+    
     void Start()
     {
         InvokeRepeating("Timer", 0f, _timer);
@@ -101,52 +115,22 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void DestroiEnemy1()
     {
-        if (collision.gameObject.tag == "DeathZone")
-        {
-            Destroy(gameObject);
-        }
-
-        if (collision.gameObject.tag == "Player")
-        {
-            if (_Enemy1)
-            {
-                Destroy(gameObject);
-            }
-            if (PlayerController.tirosNM == 3 && PlayerController._IsShooting)
-            {
-                playerHp.RecoverHealth();
-            }
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Start")
-        {
-            _Start = false;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (PlayerController.tirosNM == 3 && PlayerController._IsShooting)
-        {
-            playerHp.RecoverHealth();
-        }
-        if (col.gameObject.tag == "DeathZone")
+        if (_Enemy1)
         {
             Destroy(gameObject);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void HabilitarStart()
     {
-        if (collision.gameObject.tag == "Start")
-        {
-            _Start = true;
-        }
+        _Start = true;
+    }
+
+    private void DasabilitarStart()
+    {
+        _Start = false;
     }
 
     private void Timer()

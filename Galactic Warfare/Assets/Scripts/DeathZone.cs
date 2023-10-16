@@ -9,21 +9,23 @@ public class DeathZone : MonoBehaviour
 {
     private ScoreManager scoreManager;
 
+    private void OnEnable()
+    {
+        Observer.OnDeathZone += Destoi;
+    }
+
+    private void OnDisable()
+    {
+        Observer.OnDeathZone -= Destoi;
+    }
+
     private void Start()
     {
         scoreManager = GameObject.Find("GameManager").GetComponent<ScoreManager>();
     }
 
-    private void OnCollisionEnter2D(Collision2D col)
+    private void Destoi()
     {
-        if (col.gameObject.tag == "Player")
-        {
-            scoreManager.Life();
-        }
-        
-        if (col.gameObject.tag == "Enemy")
-        {
-            Destroy(col.gameObject);
-        }
+        scoreManager.Life();
     }
 }
