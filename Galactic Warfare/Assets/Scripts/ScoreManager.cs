@@ -70,7 +70,7 @@ public class ScoreManager : MonoBehaviour
         Destroy(GameObject.FindGameObjectWithTag("Player"));
         
         playerHp._recoveryAmount = 100;
-        PlayerHP._healthBar.value = playerHp._recoveryAmount;
+        playerHp._healthBar.value = playerHp._recoveryAmount;
         GameObject player = Instantiate(_Player, _SpawnPlayer.position, _Player.transform.rotation);
 
         

@@ -8,7 +8,6 @@ public class EscudoPlayer : MonoBehaviour
 
     // ======================== Player ========================
     private float _EscudoLifeMax;
-    
     public static float _EscudoLifeAtual;
     
     public static bool _EscudoAtivado;

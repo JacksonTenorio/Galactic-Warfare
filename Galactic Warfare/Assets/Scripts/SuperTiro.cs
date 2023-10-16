@@ -18,6 +18,14 @@ public class SuperTiro : MonoBehaviour
         Destroi();
     }
 
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Enemy")
+        {
+            Destroy(col.gameObject);
+        }
+    }
+
     private void Destroi()
     {
         _Timer -= Time.deltaTime;

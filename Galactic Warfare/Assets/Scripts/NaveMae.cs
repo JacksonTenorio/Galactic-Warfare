@@ -50,18 +50,7 @@ public class NaveMae : MonoBehaviour
 
     public float _VidaMax;
     private float _VidaAtual;
-
-    private void OnEnable()
-    {
-        Observer.OnTriggerBalaPlayer += DanoParaReceber;
-        Observer.OnTriggerLaserPlayer += DanoDoLaserPlayer;
-    }
-
-    private void OnDisable()
-    {
-        Observer.OnTriggerBalaPlayer -= DanoParaReceber;
-        Observer.OnTriggerLaserPlayer -= DanoDoLaserPlayer;
-    }
+    
 
     // Start is called before the first frame update
     void Start()
@@ -220,13 +209,13 @@ public class NaveMae : MonoBehaviour
         }
     }
 
-    public void DanoParaReceber()
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (PlayerController.tirosNM == 1)
+        if (col.gameObject.tag == "Bala")
         {
             DanoEnemy(2);
         }
-        if (PlayerController.tirosNM == 2)
+        if (col.gameObject.tag == "Bala" && PlayerController.tirosNM == 2)
         {
             DanoEnemy(4);
         }
@@ -235,9 +224,12 @@ public class NaveMae : MonoBehaviour
             _playerHp.RecoverHealth();
         }
     }
-
-    public void DanoDoLaserPlayer()
+    
+    private void OnTriggerStay2D(Collider2D col)
     {
-        DanoEnemy(0.5f);
+        if (col.gameObject.tag == "LaserPlayer")
+        {
+            DanoEnemy(0.5f);
+        }
     }
 }
